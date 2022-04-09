@@ -40,7 +40,7 @@ class RegFragment : Fragment() {
                 dataClass.position = "User"
                 dataClass.sex = binding.sexText.selectedItem.toString()
                 dataClass.surname = binding.surnameText.text.toString()
-                Auth().registration(binding.emailText.text.toString(), binding.passwordText.text.toString(), dataClass)
+                Auth().registration(binding.emailText.text.toString(), binding.passwordText.text.toString(), dataClass, requireActivity())
                 auth = Firebase.auth
                 requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container_Fragment, AuthFragment()).commit()
             }

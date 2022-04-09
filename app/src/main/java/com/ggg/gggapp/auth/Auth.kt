@@ -1,7 +1,9 @@
 package com.ggg.gggapp.auth
 
 import android.util.Log
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import com.ggg.gggapp.database.Database
 import com.ggg.gggapp.dataclasses.UserClass
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
@@ -18,13 +20,18 @@ class Auth {
     fun registration(
         email : String,
         password : String,
-        user : UserClass
+        user : UserClass,
+        activity: FragmentActivity
         ){
 
         initAuth().createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
             if (it.isSuccessful){
                 Database().putUser(Database().getUsers(), user).let {
+                    AlertDialog.Builder(activity)
+                        .setMessage(Database().getUsers().toString())
+                        .create()
+                        .show()
                     auth(email, password)
                 }
             }
@@ -35,10 +42,9 @@ class Auth {
         initAuth().signInWithEmailAndPassword(email, password)
             .addOnCompleteListener() {
                 if (it.isSuccessful){
-                    Log.e("tag", Firebase.auth.uid.toString())
                 }
                 else{
-                    Log.e("TA1G", "FAIL ${it.exception}")
+
                 }
             }
     }
