@@ -35,9 +35,12 @@ class RegFragment : Fragment() {
                 dataClass.position = "User"
                 dataClass.sex = binding.sexText.selectedItem.toString()
                 dataClass.surname = binding.surnameText.text.toString()
-                Auth().registration(binding.emailText.text.toString(), binding.passwordText.text.toString(), dataClass).let {
+                if(Auth().registration(binding.emailText.text.toString(), binding.passwordText.text.toString(), dataClass)){
                     requireActivity().startActivity(Intent(requireActivity(), BottomNavigationActivity::class.java))
                     requireActivity().finish()
+                }
+                else{
+                    Toast.makeText(activity, "Регистрация провалена", Toast.LENGTH_SHORT).show()
                 }
             }
             else{
