@@ -3,11 +3,12 @@ package com.ggg.gggapp.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import com.ggg.gggapp.auth.Auth
 import com.ggg.gggapp.R
 import com.ggg.gggapp.databinding.ActivityMainBinding
-import com.ggg.gggapp.dataclasses.UserClass
 import com.ggg.gggapp.fragments.authes.AuthFragment
+import com.ggg.gggapp.fragments.authes.RegFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,17 +18,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Auth().registration("vhjhjgasyaaa@mail.com", password = "1aqaaa", user =
-        UserClass(
-            name = "Vasyhja",
-            surname = "Vasevich",
-            patronymic = "Vaseee",
-            position = "Admin",
-            sex = "Feeemale",
-            avatar = "url",
-            email = "vasyaaa@mail.com",
-            phoneNumber = "+79002223323"
-        ))
         if(Auth().checkAuth()){
             intent = Intent(this, BottomNavigationActivity::class.java)
             startActivity(intent)
@@ -73,6 +63,16 @@ class MainActivity : AppCompatActivity() {
 //            }
 //            .create()
 //            .show()
+    }
+
+    override fun onBackPressed() {
+        if(supportFragmentManager.findFragmentById(R.id.container_Fragment) != RegFragment()){
+            supportFragmentManager.beginTransaction().replace(R.id.container_Fragment, AuthFragment())
+                .commit()
+        }
+        else{
+            super.onBackPressed()
+        }
     }
 //
 //    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
