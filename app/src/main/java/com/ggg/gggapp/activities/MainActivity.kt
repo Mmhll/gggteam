@@ -3,8 +3,6 @@ package com.ggg.gggapp.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import com.ggg.gggapp.auth.Auth
 import com.ggg.gggapp.R
 import com.ggg.gggapp.databinding.ActivityMainBinding
 import com.ggg.gggapp.fragments.authes.AuthFragment
