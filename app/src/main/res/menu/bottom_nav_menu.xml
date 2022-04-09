@@ -13,13 +13,13 @@
 
     <item
         android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_baseline_chat_24"
-        android:title="Чат" />
-
+        android:icon="@drawable/ic_profile"
+        android:title="Профиль" />
     <item
         android:id="@+id/navigation_chat"
-        android:icon="@drawable/ic_profile"
-        android:title="Профиль"
+        android:icon="@drawable/ic_baseline_chat_24"
+        android:title="Чат"
         />
+
 
 </menu>
