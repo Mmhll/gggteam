@@ -24,9 +24,6 @@ class Auth {
                     auth(email, password)
                 }
             }
-            else{
-                Log.e("FAIL", it.exception.toString())
-            }
         }
     }
 
