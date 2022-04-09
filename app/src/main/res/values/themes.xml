@@ -31,6 +31,20 @@
         <item name="android:colorAccent">@color/or</item>
         <item name="backgroundTint">@color/or</item>
         <item name="android:drawablePadding">10dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+
+    </style>
+
+    <style name="RegText">
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:colorControlActivated">@color/or</item>
+        <item name="android:colorControlHighlight">@color/or</item>
+        <item name="android:colorAccent">@color/or</item>
+        <item name="backgroundTint">@color/or</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:textColor">@color/black</item>
+
     </style>
 </resources>
