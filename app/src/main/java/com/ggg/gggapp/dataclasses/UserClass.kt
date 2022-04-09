@@ -9,5 +9,4 @@ data class UserClass(
     var avatar : String?="",
     var email : String?="",
     var phoneNumber : String?=""
-    //Имя, фамилия, отчество, должность, пол, аватарка, email, номер телефона
 )

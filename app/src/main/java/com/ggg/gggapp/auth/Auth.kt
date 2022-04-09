@@ -21,7 +21,7 @@ class Auth {
             .addOnCompleteListener {
             if (it.isSuccessful){
                 Database().putUser(Database().getUsers(), user).let {
-                    Log.e("YEP", "YOP")
+                    auth(email, password)
                 }
             }
             else{
@@ -30,9 +30,9 @@ class Auth {
         }
     }
 
-    fun auth(email: String, password: String, activity : AppCompatActivity){
+    fun auth(email: String, password: String){
         initAuth().signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(activity) {
+            .addOnCompleteListener() {
                 if (it.isSuccessful){
                     //DO SOME SHIT
                     Log.v("TA1G1", "SUCCESS ")

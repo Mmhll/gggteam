@@ -17,6 +17,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        Auth().registration("vhjhjgasyaaa@mail.com", password = "1aqaaa", user =
+        UserClass(
+            name = "Vasyhja",
+            surname = "Vasevich",
+            patronymic = "Vaseee",
+            position = "Admin",
+            sex = "Feeemale",
+            avatar = "url",
+            email = "vasyaaa@mail.com",
+            phoneNumber = "+79002223323"
+        ))
         if(Auth().checkAuth()){
             intent = Intent(this, BottomNavigationActivity::class.java)
             startActivity(intent)

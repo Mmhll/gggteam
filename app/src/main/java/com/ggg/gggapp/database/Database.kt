@@ -2,7 +2,9 @@ package com.ggg.gggapp.database
 
 import android.util.Log
 import com.ggg.gggapp.dataclasses.UserClass
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
+import com.google.firebase.ktx.Firebase
 
 class Database {
 
@@ -21,7 +23,7 @@ class Database {
             }
         }
         if (!exists) {
-            getFirebaseReference("Users").child("${user.name}_${user.surname}").setValue(user).addOnCompleteListener {
+            getFirebaseReference("Users").child(Firebase.auth.uid.toString()).setValue(user).addOnCompleteListener {
                 Log.e("TAG", "Success")
             }
         }
