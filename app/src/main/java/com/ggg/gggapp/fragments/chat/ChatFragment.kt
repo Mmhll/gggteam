@@ -70,6 +70,4 @@ class ChatFragment : Fragment() {
         super.onDestroyView()
         binding = null
     }
-
-
 }
