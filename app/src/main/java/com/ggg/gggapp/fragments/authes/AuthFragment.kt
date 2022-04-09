@@ -2,6 +2,7 @@ package com.ggg.gggapp.fragments.authes
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,8 @@ import com.ggg.gggapp.R
 import com.ggg.gggapp.activities.BottomNavigationActivity
 import com.ggg.gggapp.auth.Auth
 import com.ggg.gggapp.databinding.FragmentAuthBinding
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class AuthFragment : Fragment() {
 

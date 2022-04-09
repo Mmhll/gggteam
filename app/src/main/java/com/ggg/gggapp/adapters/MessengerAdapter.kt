@@ -11,8 +11,9 @@ import com.bumptech.glide.Glide
 import com.ggg.gggapp.R
 import com.ggg.gggapp.database.Database
 import com.ggg.gggapp.dataclasses.MessageClass
+import com.ggg.gggapp.dataclasses.UserClass
 
-class MessengerAdapter(val data : ArrayList<MessageClass>, val context : Context) : RecyclerView.Adapter<MessengerAdapter.VH>() {
+class MessengerAdapter(val data : ArrayList<MessageClass>,  val context : Context) : RecyclerView.Adapter<MessengerAdapter.VH>() {
     class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var image : ImageView = itemView.findViewById(R.id.messageImage)
         var message : TextView = itemView.findViewById(R.id.messageText)
@@ -26,9 +27,19 @@ class MessengerAdapter(val data : ArrayList<MessageClass>, val context : Context
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         var users = Database().getUsers()
-
-
-        Glide.with(context).load(data[position])
+        var keys = Database().getKeys()
+        var user : UserClass? = null
+        for(i in keys){
+            if (i == keys[position]){
+                user = users[position]
+            }
+        }
+        if (user != null) {
+            Glide.with(context).load(user.avatar).centerCrop().circleCrop().into(holder.image)
+            holder.message.text = data[position].messageText
+            holder.initials.text = user.name + user.surname
+            holder.time.text = data[position].time
+        }
     }
 
     override fun getItemCount(): Int {

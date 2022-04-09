@@ -29,8 +29,9 @@ class Messenger {
         return array
     }
 
-    fun sendMessage(dateNow : String, message : MessageClass) {
-        Database().getFirebaseReference("Messenger").child(dateNow).setValue(message).addOnCompleteListener {
+    fun sendMessage(message : MessageClass) {
+        var key = Database().getFirebaseReference("Messenger").push().key
+        Database().getFirebaseReference("Messenger").child(key!!).setValue(message).addOnCompleteListener {
             if (it.isSuccessful){
                 Log.e("TAG", "Success")
             }
