@@ -3,21 +3,11 @@ package com.ggg.gggapp.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.appcompat.app.AlertDialog
-import com.ggg.gggapp.Auth
+import com.ggg.gggapp.auth.Auth
 import com.ggg.gggapp.R
-import com.ggg.gggapp.database.Database
 import com.ggg.gggapp.databinding.ActivityMainBinding
+import com.ggg.gggapp.dataclasses.UserClass
 import com.ggg.gggapp.fragments.authes.AuthFragment
-import com.ggg.gggapp.fragments.authes.RegFragment
-import com.ggg.gggapp.fragments.home.HomeFragment
-import com.ggg.gggapp.storage.Storage
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.storage.FirebaseStorage
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,7 +30,6 @@ class MainActivity : AppCompatActivity() {
 //        rtDatabase = Database().getFirebaseReference("Users")
 //        storage = FirebaseStorage.getInstance()
 //
-//        Log.e("TAaaaaaaaaaaaaaaaG", "${Auth().checkAuth()}")
 //
 //        var array = ArrayList<User>()
 //        rtDatabase.addValueEventListener(object : ValueEventListener{
@@ -88,11 +77,4 @@ class MainActivity : AppCompatActivity() {
 //    }
 }
 
-
-data class User(
-    var email : String? = "",
-    var name : String? = "",
-    var password : String? = "",
-    var surname : String ? = ""
-)
 
