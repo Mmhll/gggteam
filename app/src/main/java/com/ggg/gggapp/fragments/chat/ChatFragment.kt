@@ -34,9 +34,6 @@ class ChatFragment : Fragment() {
             .getReference("Messenger")
         var array = ArrayList<MessageClass>()
         userArrayList = ArrayList<MessageClass>()
-        val linearLayoutManager = LinearLayoutManager(requireActivity())
-        linearLayoutManager.reverseLayout = true
-        binding.recyclerChat.layoutManager = linearLayoutManager
         rtDatabase.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
@@ -47,6 +44,7 @@ class ChatFragment : Fragment() {
                     }
 
                     binding.recyclerChat.adapter = MessengerAdapter(array, requireContext())
+                    binding.recyclerChat.scrollToPosition(array.size-1)
                 }
             }
 

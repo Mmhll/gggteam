@@ -22,7 +22,7 @@ class MessengerAdapter(val data: ArrayList<MessageClass>, val context: Context) 
     RecyclerView.Adapter<MessengerAdapter.VH>() {
 
     private var array = ArrayList<UserClass>()
-    var user: UserClass = UserClass()
+
 
     class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var image: ImageView = itemView.findViewById(R.id.messageImage)
@@ -44,13 +44,13 @@ class MessengerAdapter(val data: ArrayList<MessageClass>, val context: Context) 
                     for (snap in snapshot.children) {
                         array.add(snap.getValue(UserClass::class.java)!!)
                     }
-                    Log.e("TAG", array.toString())
-                    for (i in data) {
-                        if (i.userId == array[holder.adapterPosition].uid) {
-                            user = array[holder.adapterPosition]
+                    var user: UserClass? = null
+                    for (i in array) {
+                        if (i.uid == data[holder.adapterPosition].userId){
+                            user = i
                         }
                     }
-                    if (user.uid != "") {
+                    if (user != null) {
                         Glide.with(context).load(user.avatar).centerCrop().circleCrop().into(holder.image)
                         holder.message.text = data[holder.adapterPosition].messageText
                         holder.initials.text = user.name + user.surname
@@ -68,8 +68,5 @@ class MessengerAdapter(val data: ArrayList<MessageClass>, val context: Context) 
 
     override fun getItemCount(): Int {
         return data.size
-    }
-
-    fun getUsers(position: Int) {
     }
 }
