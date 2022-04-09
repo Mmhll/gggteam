@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.ggg.gggapp.R
 import com.ggg.gggapp.activities.BottomNavigationActivity
-import com.ggg.gggapp.activities.MainActivity
 import com.ggg.gggapp.auth.Auth
 import com.ggg.gggapp.databinding.FragmentAuthBinding
 
@@ -21,7 +20,6 @@ class AuthFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentAuthBinding.inflate(inflater)
         binding.RegButton.setOnClickListener{
             requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container_Fragment, RegFragment()).commit()
