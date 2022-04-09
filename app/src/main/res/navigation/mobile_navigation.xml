@@ -8,24 +8,23 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.ggg.gggapp.fragments.home.HomeFragment"
-        android:label="Сервисы"
+        android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.ggg.gggapp.fragments.dashboard.DashboardFragment"
-        android:label="Новости"
+        android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.ggg.gggapp.fragments.notifications.NotificationsFragment"
-        android:label="Чат"
+        android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_chat"
         android:name="com.ggg.gggapp.fragments.chat.ChatFragment"
-        android:label="Профиль"
+        android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" />
-
 </navigation>
