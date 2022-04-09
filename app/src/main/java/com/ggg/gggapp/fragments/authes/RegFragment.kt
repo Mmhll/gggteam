@@ -55,6 +55,7 @@ class RegFragment : Fragment() {
                 dataClass.surname = binding.surnameText.text.toString()
                 auth.createUserWithEmailAndPassword(binding.emailText.text.toString(), binding.passwordText.text.toString()).addOnCompleteListener{
                     if(it.isSuccessful){
+                        dataClass.uid = Firebase.auth.uid
                         Database().putUser(Database().getUsers(), dataClass)
                         requireActivity().startActivity(Intent(requireActivity(),BottomNavigationActivity::class.java))
                         requireActivity().finish()

@@ -1,12 +1,13 @@
 package com.ggg.gggapp.dataclasses
 
 data class UserClass(
-    var avatar : String?=null,
-    var email : String?=null,
-    var name : String?=null,
-    var patronymic : String?=null,
-    var phoneNumber : String?=null,
-    var position : String?=null,
-    var sex : String?=null,
-    var surname : String?=null
+    var avatar : String? ="",
+    var email : String? ="",
+    var name : String? ="",
+    var patronymic : String? ="",
+    var phoneNumber : String? ="",
+    var position : String? ="",
+    var sex : String? ="",
+    var surname : String? ="",
+    var uid : String? = ""
 )
