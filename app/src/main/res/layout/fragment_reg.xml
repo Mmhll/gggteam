@@ -16,6 +16,15 @@
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             style="@style/RegText"
+            android:hint="aval"
+            android:id="@+id/avatarText"
+            />
+
+
+        <EditText
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            style="@style/RegText"
             android:hint="Email"
             android:id="@+id/emailText"
             />
@@ -26,6 +35,7 @@
             style="@style/RegText"
             android:hint="Password"
             android:id="@+id/passwordText"
+            android:inputType="textPassword"
             />
 
         <EditText

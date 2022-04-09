@@ -7,10 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.ggg.gggapp.Auth
 import com.ggg.gggapp.R
 import com.ggg.gggapp.activities.BottomNavigationActivity
-import com.ggg.gggapp.activities.MainActivity
+import com.ggg.gggapp.auth.Auth
 import com.ggg.gggapp.databinding.FragmentAuthBinding
 
 class AuthFragment : Fragment() {
@@ -21,14 +20,13 @@ class AuthFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentAuthBinding.inflate(inflater)
         binding.RegButton.setOnClickListener{
             requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container_Fragment, RegFragment()).commit()
         }
         binding.AuthButton.setOnClickListener{
             if(!binding.Login.text.toString().isEmpty() && !binding.Login.text.toString().isEmpty()){
-                Auth().auth(binding.Login.text.toString(),binding.Login.text.toString(), MainActivity())
+                Auth().auth(binding.Login.text.toString(),binding.Login.text.toString())
                 requireActivity().startActivity(Intent(requireActivity(),BottomNavigationActivity::class.java))
                 requireActivity().finish()
             }

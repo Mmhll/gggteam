@@ -1,9 +1,10 @@
 package com.ggg.gggapp.database
 
 import android.util.Log
-import com.ggg.gggapp.activities.User
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.ggg.gggapp.dataclasses.UserClass
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.*
+import com.google.firebase.ktx.Firebase
 
 class Database {
 
@@ -14,19 +15,35 @@ class Database {
     }
 
 
-    fun putUser(rtDatabase : DatabaseReference, array : ArrayList<User>, user : User){
+    fun putUser(array : ArrayList<UserClass>, user : UserClass){
         var exists = false
         for (i in array){
-            Log.e("TAG1", i.toString())
-            Log.e("TAG2", user.toString())
             if (i == user){
                 exists = true
             }
         }
         if (!exists) {
-            rtDatabase.child("${user.name}_${user.surname}").setValue(user).addOnCompleteListener {
+            getFirebaseReference("Users").child(Firebase.auth.uid.toString()).setValue(user).addOnCompleteListener {
                 Log.e("TAG", "Success")
             }
         }
+    }
+
+    fun getUsers() : ArrayList<UserClass>{
+        var array = ArrayList<UserClass>()
+        getFirebaseReference("Users").addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    for (snap in snapshot.children) {
+                        array.add(snap.getValue(UserClass::class.java)!!)
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
+        return array
     }
 }

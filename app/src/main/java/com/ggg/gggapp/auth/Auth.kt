@@ -1,7 +1,9 @@
-package com.ggg.gggapp
+package com.ggg.gggapp.auth
 
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.ggg.gggapp.database.Database
+import com.ggg.gggapp.dataclasses.UserClass
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.firebase.auth.FirebaseAuth
 
@@ -10,21 +12,27 @@ class Auth {
         return FirebaseAuth.getInstance()
     }
 
-    fun registration(email : String, password : String){
+    fun registration(
+        email : String,
+        password : String,
+        user : UserClass
+        ){
         initAuth().createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
             if (it.isSuccessful){
-
+                Database().putUser(Database().getUsers(), user).let {
+                    auth(email, password)
+                }
             }
             else{
-
+                Log.e("FAIL", it.exception.toString())
             }
         }
     }
 
-    fun auth(email: String, password: String, activity : AppCompatActivity){
+    fun auth(email: String, password: String){
         initAuth().signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(activity) {
+            .addOnCompleteListener() {
                 if (it.isSuccessful){
                     //DO SOME SHIT
                     Log.v("TA1G1", "SUCCESS ")
