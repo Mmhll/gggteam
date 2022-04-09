@@ -5,10 +5,69 @@
     android:layout_height="match_parent"
     tools:context=".fragments.authes.RegFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/RegButton"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="fdsfssdfsdf" />
+        android:text="@string/hello_blank_fragment" />
+
+    <TextView
+        android:id="@+id/avatarText"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="admin@mail.ru"
+        />
+
+    <TextView
+        android:id="@+id/emailText"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="123456" />
+
+    <TextView
+        android:id="@+id/nameText"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="123456" />
+
+    <TextView
+        android:id="@+id/patronymicText"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="123456" />
+
+    <TextView
+        android:id="@+id/phoneNumberText"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="123456" />
+
+
+    <TextView
+        android:id="@+id/sexText"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="123456" />
+
+    <TextView
+        android:id="@+id/surnameText"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="123456" />
+
+    <TextView
+        android:id="@+id/passwordText"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="123456" />
 
 </FrameLayout>
