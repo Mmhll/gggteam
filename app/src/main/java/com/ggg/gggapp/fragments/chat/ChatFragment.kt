@@ -64,6 +64,7 @@ class ChatFragment : Fragment() {
                         userId = Firebase.auth.uid
                     )
                 )
+                binding!!.messageChat.text.clear()
             }
         }
         return binding!!.root
