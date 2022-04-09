@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/conner.xml" value="0.1885" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17889492753623187" />
         <entry key="app/src/main/res/layout/fragment_auth.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_reg.xml" value="0.18" />
       </map>
     </option>
   </component>

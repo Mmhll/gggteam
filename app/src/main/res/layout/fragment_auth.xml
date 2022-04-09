@@ -28,20 +28,22 @@
             android:layout_marginTop="15dp"/>
 
         <EditText
-            android:layout_width="270dp"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             style="@style/authText"
             android:id="@+id/Login"
+            android:backgroundTint="@color/black"
             android:drawableLeft="@drawable/log"
-
+            android:hint="Email"
             />
 
         <EditText
-            android:layout_width="270dp"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             style="@style/authText"
             android:id="@+id/Password"
             android:drawableLeft="@drawable/pass"
+            android:hint="Password"
             />
 
         <androidx.appcompat.widget.AppCompatButton
