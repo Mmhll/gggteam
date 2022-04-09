@@ -71,14 +71,14 @@ class RegFragment : Fragment() {
         return binding.root
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-       super.onActivityResult(requestCode, resultCode, data)
-       when (requestCode){
-           1->{
-               if (resultCode == RESULT_OK){
-                   var uri = data?.data!!
-                   Storage().uploadImage(uri, dataClass)
-               }
-           }
-       }
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode){
+            1->{
+                if (resultCode == RESULT_OK){
+                    var uri = data?.data!!
+                    Storage().uploadImage(uri, dataClass)
+                }
+            }
+        }
     }
 }
