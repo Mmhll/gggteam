@@ -14,8 +14,10 @@ class Auth {
         initAuth().createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
             if (it.isSuccessful){
+
             }
             else{
+
             }
         }
     }
