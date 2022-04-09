@@ -47,6 +47,7 @@ class MessengerAdapter(val data: ArrayList<MessageClass>, val context: Context) 
                     var user: UserClass? = null
                     for (i in array) {
                         if (i.uid == data[holder.adapterPosition].userId){
+
                             user = i
                         }
                     }

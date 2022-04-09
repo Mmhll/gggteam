@@ -36,6 +36,7 @@ class NewsAdapter(val data: ArrayList<NewsClass>, val context: Context) :
             .getReference("News").addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
+
                         for (snap in snapshot.children) {
                             array.add(snap.getValue(NewsClass::class.java)!!)
                         }
