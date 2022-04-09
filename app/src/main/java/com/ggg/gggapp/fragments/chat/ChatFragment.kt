@@ -23,9 +23,6 @@ class ChatFragment : Fragment() {
         binding = FragmentChatBinding.inflate(inflater)
         Log.e("UID", Firebase.auth.uid.toString())
         Messenger().sendMessage(MessageClass(messageText = "О, привет", Firebase.auth.uid.toString()))
-        Messenger().sendMessage(MessageClass(messageText = "О, привет", Firebase.auth.uid.toString()))
-        Messenger().sendMessage(MessageClass(messageText = "О, привет", Firebase.auth.uid.toString()))
-        Messenger().sendMessage(MessageClass(messageText = "О, привет", Firebase.auth.uid.toString()))
 
 
         return binding.root

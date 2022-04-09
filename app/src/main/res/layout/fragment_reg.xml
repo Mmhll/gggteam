@@ -16,7 +16,7 @@
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             style="@style/RegText"
-            android:hint="aval"
+            android:hint="URL or"
             android:id="@+id/avatarText"
             />
 
@@ -113,6 +113,11 @@
                 />
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/addImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
 
     </LinearLayout>
