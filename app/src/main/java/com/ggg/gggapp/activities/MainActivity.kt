@@ -22,6 +22,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        if(Auth().checkAuth()){
+
+        }
+        else{
+
+        }
+        startActivity(intent)
+
+
 //
 //        rtDatabase = Database().getFirebaseReference("Users")
 //        storage = FirebaseStorage.getInstance()
