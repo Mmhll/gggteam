@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.ggg.gggapp.R
 import com.ggg.gggapp.activities.BottomNavigationActivity
 import com.ggg.gggapp.auth.Auth
+import com.ggg.gggapp.database.Database
 import com.ggg.gggapp.databinding.FragmentRegBinding
 import com.ggg.gggapp.dataclasses.UserClass
 import com.google.firebase.auth.FirebaseAuth
@@ -26,6 +27,7 @@ class RegFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentRegBinding.inflate(inflater)
+        auth = Firebase.auth
         binding.RegButton.setOnClickListener{
             var dataClass = UserClass()
             if(!binding.avatarText.text.toString().isEmpty() && !binding.emailText.text.toString().isEmpty()
@@ -40,9 +42,16 @@ class RegFragment : Fragment() {
                 dataClass.position = "User"
                 dataClass.sex = binding.sexText.selectedItem.toString()
                 dataClass.surname = binding.surnameText.text.toString()
-                Auth().registration(binding.emailText.text.toString(), binding.passwordText.text.toString(), dataClass)
-                auth = Firebase.auth
-                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container_Fragment, AuthFragment()).commit()
+                auth.createUserWithEmailAndPassword(binding.emailText.text.toString(), binding.passwordText.text.toString()).addOnCompleteListener{
+                    if(it.isSuccessful){
+                        Database().putUser(Database().getUsers(), dataClass)
+                        requireActivity().startActivity(Intent(requireActivity(),BottomNavigationActivity::class.java))
+                        requireActivity().finish()
+                    }
+                    else{
+                        Toast.makeText(activity, "Регистрация провалена", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
             else{
                 Toast.makeText(activity, "Вы оставили какое-то поле пустым", Toast.LENGTH_SHORT).show()
