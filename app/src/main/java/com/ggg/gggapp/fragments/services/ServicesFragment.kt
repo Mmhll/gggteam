@@ -1,15 +1,19 @@
-package com.ggg.gggapp.fragments.dashboard
+package com.ggg.gggapp.fragments.services
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.ggg.gggapp.databinding.FragmentDashboardBinding
+import com.ggg.gggapp.databinding.FragmentServicesBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
-class DashboardFragment : Fragment() {
+class ServicesFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentServicesBinding? = null
+    private lateinit var auth: FirebaseAuth
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -20,8 +24,11 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentServicesBinding.inflate(inflater, container, false)
+        auth = Firebase.auth
+        binding.logOut.setOnClickListener{
+            auth.signOut()
+        }
         return binding.root
     }
 

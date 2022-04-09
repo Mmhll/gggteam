@@ -1,19 +1,15 @@
-package com.ggg.gggapp.fragments.home
+package com.ggg.gggapp.fragments.news
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.ggg.gggapp.databinding.FragmentHomeBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.ggg.gggapp.databinding.FragmentNewsBinding
 
-class HomeFragment : Fragment() {
+class NewsFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
-    private lateinit var auth: FirebaseAuth
+    private var _binding: FragmentNewsBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,11 +20,8 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        auth = Firebase.auth
-        binding.logOut.setOnClickListener{
-            auth.signOut()
-        }
+
+        _binding = FragmentNewsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
