@@ -41,6 +41,7 @@ class RegFragment : Fragment() {
                 }
                 else{
                     Toast.makeText(activity, "Регистрация провалена", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Регистрация провалена", Toast.LENGTH_SHORT).show()
                 }
             }
             else{
