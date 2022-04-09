@@ -12,8 +12,15 @@ import com.ggg.gggapp.R
 import com.ggg.gggapp.database.Database
 import com.ggg.gggapp.dataclasses.MessageClass
 import com.ggg.gggapp.dataclasses.UserClass
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 
 class MessengerAdapter(val data : ArrayList<MessageClass>,  val context : Context) : RecyclerView.Adapter<MessengerAdapter.VH>() {
+
+    private var array = ArrayList<UserClass>()
+    private var arrayKeys = ArrayList<String>()
+
     class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var image : ImageView = itemView.findViewById(R.id.messageImage)
         var message : TextView = itemView.findViewById(R.id.messageText)
@@ -26,12 +33,12 @@ class MessengerAdapter(val data : ArrayList<MessageClass>,  val context : Contex
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        var users = Database().getUsers()
-        var keys = Database().getKeys()
+        getUsers()
+        getKeys()
         var user : UserClass? = null
-        for(i in keys){
-            if (i == keys[position]){
-                user = users[position]
+        for(i in arrayKeys){
+            if (i == arrayKeys[position]){
+                user = array[position]
             }
         }
         if (user != null) {
@@ -44,5 +51,36 @@ class MessengerAdapter(val data : ArrayList<MessageClass>,  val context : Contex
 
     override fun getItemCount(): Int {
         return data.size
+    }
+
+    private fun getUsers(){
+        Database().getFirebaseReference("Users").addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    for (snap in snapshot.children) {
+                        array.add(snap.getValue(UserClass::class.java)!!)
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
+    }
+
+    private fun getKeys(){
+        Database().getFirebaseReference("Users").addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    for (snap in snapshot.children) {
+                        arrayKeys.add(snap.key.toString())
+                    }
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
     }
 }
