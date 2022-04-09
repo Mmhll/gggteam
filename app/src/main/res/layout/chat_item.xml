@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/messageText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Message text"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/messageImage"
+        app:layout_constraintTop_toBottomOf="@+id/messageInitials" />
+
+    <ImageView
+        android:id="@+id/messageImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/messageInitials"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Алексей Петров"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/messageImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/messageTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="18:00 20.09"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/messageInitials"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
