@@ -1,5 +1,6 @@
 package com.ggg.gggapp.database
 
+import android.app.AlertDialog
 import android.os.Message
 import android.util.Log
 import com.ggg.gggapp.dataclasses.MessageClass
@@ -10,24 +11,6 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 
 class Messenger {
-    fun getMessages(): ArrayList<MessageClass> {
-        var array = ArrayList<MessageClass>()
-        Database().getFirebaseReference("Messenger")
-            .addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.exists()) {
-                        for (snap in snapshot.children) {
-                            array.add(snap.getValue(MessageClass::class.java)!!)
-                        }
-                    }
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-
-                }
-            })
-        return array
-    }
 
     fun sendMessage(message : MessageClass) {
         var key = Database().getFirebaseReference("Messenger").push().key

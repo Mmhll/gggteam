@@ -47,20 +47,4 @@ class Database {
         return array
     }
 
-    fun getKeys() : ArrayList<String>{
-        var array = ArrayList<String>()
-        getFirebaseReference("Users").addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    for (snap in snapshot.children) {
-                        array.add(snap.key.toString())
-                    }
-                }
-            }
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-        })
-        return array
-    }
 }
