@@ -1,122 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.authes.RegFragment"
-    android:background="@color/white">
+    tools:context=".fragments.authes.RegFragment">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/RegButton"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="150dp">
+        android:text="@string/hello_blank_fragment" />
 
-        <EditText
-            android:layout_width="270dp"
-            android:layout_height="wrap_content"
-            style="@style/RegText"
-            android:hint="aval"
-            android:id="@+id/avatarText"
-            />
+    <TextView
+        android:id="@+id/avatarText"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="admin@mail.ru"
+        />
 
+    <TextView
+        android:id="@+id/emailText"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="123456" />
 
-        <EditText
-            android:layout_width="270dp"
-            android:layout_height="wrap_content"
-            style="@style/RegText"
-            android:hint="Email"
-            android:id="@+id/emailText"
-            />
+    <TextView
+        android:id="@+id/nameText"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="123456" />
 
-        <EditText
-            android:layout_width="270dp"
-            android:layout_height="wrap_content"
-            style="@style/RegText"
-            android:hint="Password"
-            android:id="@+id/passwordText"
-            android:inputType="textPassword"
-            />
+    <TextView
+        android:id="@+id/patronymicText"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="123456" />
 
-        <EditText
-            android:layout_width="270dp"
-            android:layout_height="wrap_content"
-            style="@style/RegText"
-            android:hint="Имя"
-            android:id="@+id/nameText"
-            />
-
-        <EditText
-            android:layout_width="270dp"
-            android:layout_height="wrap_content"
-            style="@style/RegText"
-            android:hint="Фамилия"
-            android:id="@+id/surnameText"
-            />
-
-        <EditText
-            android:layout_width="270dp"
-            android:layout_height="wrap_content"
-            style="@style/RegText"
-            android:hint="Отчество"
-            android:id="@+id/patronymicText"
-            />
-
-        <EditText
-            android:layout_width="270dp"
-            android:layout_height="wrap_content"
-            style="@style/RegText"
-            android:hint="Номер телефона"
-            android:id="@+id/phoneNumberText"
-            />
-
-        <Spinner
-            android:id="@+id/sexText"
-            android:layout_width="270dp"
-            android:layout_height="wrap_content"
-            style="@style/RegText"
-            android:entries="@array/pol"
-            />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/conner"
-            android:layout_marginTop="35dp"
-            android:text="Регистрация"
-            android:textColor="@color/white"
-            android:id="@+id/RegButton"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
-
-            <CheckBox
-                android:id="@+id/Check"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:layout_marginLeft="15dp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Согласие на обработку персональных данных"
-                android:textSize="15dp"
-                android:textStyle="italic"
-
-                />
-
-        </LinearLayout>
+    <TextView
+        android:id="@+id/phoneNumberText"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="123456" />
 
 
-    </LinearLayout>
+    <Spinner
+        android:id="@+id/sexText"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="123456" />
 
+    <TextView
+        android:id="@+id/surnameText"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="123456" />
 
+    <TextView
+        android:id="@+id/passwordText"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="123456" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <CheckBox
+        android:id="@+id/Check"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</FrameLayout>
