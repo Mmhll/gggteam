@@ -7,14 +7,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.ggg.gggapp.R
 import com.ggg.gggapp.activities.BottomNavigationActivity
 import com.ggg.gggapp.auth.Auth
 import com.ggg.gggapp.databinding.FragmentRegBinding
 import com.ggg.gggapp.dataclasses.UserClass
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class RegFragment : Fragment() {
 
     private lateinit var binding: FragmentRegBinding
+    private lateinit var auth : FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,13 +40,9 @@ class RegFragment : Fragment() {
                 dataClass.position = "User"
                 dataClass.sex = binding.sexText.selectedItem.toString()
                 dataClass.surname = binding.surnameText.text.toString()
-                if(Auth().registration(binding.emailText.text.toString(), binding.passwordText.text.toString(), dataClass)){
-                    requireActivity().startActivity(Intent(requireActivity(), BottomNavigationActivity::class.java))
-                    requireActivity().finish()
-                }
-                else{
-                    Toast.makeText(activity, "Регистрация провалена", Toast.LENGTH_SHORT).show()
-                }
+                Auth().registration(binding.emailText.text.toString(), binding.passwordText.text.toString(), dataClass)
+                auth = Firebase.auth
+                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container_Fragment, AuthFragment()).commit()
             }
             else{
                 Toast.makeText(activity, "Вы оставили какое-то поле пустым", Toast.LENGTH_SHORT).show()

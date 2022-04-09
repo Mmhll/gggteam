@@ -70,9 +70,6 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction().replace(R.id.container_Fragment, AuthFragment())
                 .commit()
         }
-        else{
-            super.onBackPressed()
-        }
     }
 //
 //    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

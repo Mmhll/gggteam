@@ -17,22 +17,16 @@ class Auth {
         email : String,
         password : String,
         user : UserClass
-        ): Boolean {
-        var checkTrue = false
+        ){
+
         initAuth().createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
             if (it.isSuccessful){
                 Database().putUser(Database().getUsers(), user).let {
                     auth(email, password)
-                    checkTrue = true
                 }
             }
-            else{
-                checkTrue = false
-            }
         }
-        return checkTrue
-
     }
 
     fun auth(email: String, password: String){
