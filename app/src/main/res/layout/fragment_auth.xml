@@ -6,8 +6,32 @@
     tools:context=".fragments.authes.AuthFragment">
 
     <TextView
+        android:id="@+id/RegButton"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />
+
+    <TextView
+        android:id="@+id/AuthButton"
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment" />
+
+    <TextView
+        android:id="@+id/Login"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="admin@mail.ru" />
+
+
+    <TextView
+        android:id="@+id/Password"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="123456" />
 
 </FrameLayout>
