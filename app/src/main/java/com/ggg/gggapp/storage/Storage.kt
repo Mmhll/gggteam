@@ -11,7 +11,7 @@ class Storage {
     }
     fun uploadImage(uri : Uri, user: UserClass){
         var storage = initStorage().getReference("images")
-        storage.child(user.name!! + Random.nextInt(0, Int.MAX_VALUE))
+        storage.child(user.avatar!! + Random.nextInt(0, Int.MAX_VALUE))
             .putFile(uri)
     }
 
