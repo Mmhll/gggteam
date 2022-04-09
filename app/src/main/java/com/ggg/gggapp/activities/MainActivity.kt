@@ -22,56 +22,56 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        rtDatabase = Database().getFirebaseReference("Users")
-        storage = FirebaseStorage.getInstance()
-
-        Log.e("TAaaaaaaaaaaaaaaaG", "${Auth().checkAuth()}")
-
-        var array = ArrayList<User>()
-        rtDatabase.addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()){
-                    array.clear()
-                    for (snap in snapshot.children){
-                        array.add(snap.getValue(User::class.java)!!).let {
-                            Log.e("TAG", it.toString())
-                        }
-                    }
-                    Database().putUser(rtDatabase, array, user)
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-
-        })
-        AlertDialog.Builder(this)
-            .setPositiveButton("Сделать снимок"
-            ) { p0, p1 ->
-                val intent = Intent(Intent.ACTION_PICK)
-                intent.type = "image/*"
-                startActivityForResult(intent, 1)
-            }
-            .setNegativeButton("Использовать ссылку"){ _,_ ->
-
-            }
-            .create()
-            .show()
+//
+//        rtDatabase = Database().getFirebaseReference("Users")
+//        storage = FirebaseStorage.getInstance()
+//
+//        Log.e("TAaaaaaaaaaaaaaaaG", "${Auth().checkAuth()}")
+//
+//        var array = ArrayList<User>()
+//        rtDatabase.addValueEventListener(object : ValueEventListener{
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                if(snapshot.exists()){
+//                    array.clear()
+//                    for (snap in snapshot.children){
+//                        array.add(snap.getValue(User::class.java)!!).let {
+//                            Log.e("TAG", it.toString())
+//                        }
+//                    }
+//                    Database().putUser(rtDatabase, array, user)
+//                }
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//
+//            }
+//
+//        })
+//        AlertDialog.Builder(this)
+//            .setPositiveButton("Сделать снимок"
+//            ) { p0, p1 ->
+//                val intent = Intent(Intent.ACTION_PICK)
+//                intent.type = "image/*"
+//                startActivityForResult(intent, 1)
+//            }
+//            .setNegativeButton("Использовать ссылку"){ _,_ ->
+//
+//            }
+//            .create()
+//            .show()
     }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        when (requestCode){
-            1->{
-                if (resultCode == RESULT_OK){
-                    var uri = data?.data!!
-                    Storage().uploadImage(uri, user)
-                }
-            }
-        }
-    }
+//
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        when (requestCode){
+//            1->{
+//                if (resultCode == RESULT_OK){
+//                    var uri = data?.data!!
+//                    Storage().uploadImage(uri, user)
+//                }
+//            }
+//        }
+//    }
 }
 
 

@@ -1,4 +1,4 @@
-package com.ggg.gggapp.activities.ui.notifications
+package com.ggg.gggapp.fragments.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater

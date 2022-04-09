@@ -1,4 +1,4 @@
-package com.ggg.gggapp.activities.ui.dashboard
+package com.ggg.gggapp.fragments.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

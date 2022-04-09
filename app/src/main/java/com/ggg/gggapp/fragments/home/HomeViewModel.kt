@@ -1,4 +1,4 @@
-package com.ggg.gggapp.activities.ui.home
+package com.ggg.gggapp.fragments.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

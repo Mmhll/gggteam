@@ -1,4 +1,4 @@
-package com.ggg.gggapp.activities.ui.notifications
+package com.ggg.gggapp.fragments.notifications
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

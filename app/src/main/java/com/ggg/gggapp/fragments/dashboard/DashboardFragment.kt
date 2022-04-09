@@ -1,4 +1,4 @@
-package com.ggg.gggapp.activities.ui.dashboard
+package com.ggg.gggapp.fragments.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
