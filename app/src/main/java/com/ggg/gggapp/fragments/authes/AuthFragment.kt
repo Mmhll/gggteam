@@ -34,12 +34,13 @@ class AuthFragment : Fragment() {
         binding.AuthButton.setOnClickListener{
             if(!binding.Login.text.toString().isEmpty() && !binding.Password.text.toString().isEmpty()){
                 auth.signInWithEmailAndPassword(binding.Login.text.toString() ,binding.Password.text.toString()).addOnCompleteListener{
-                       if(it.isSuccessful){
-                           requireActivity().startActivity(Intent(requireActivity(),BottomNavigationActivity::class.java))
-                           requireActivity().finish()
-                       }
+                   if(it.isSuccessful){
+                       requireActivity().startActivity(Intent(requireActivity(),BottomNavigationActivity::class.java))
+                       requireActivity().finish()
+                   }else{
+                       Toast.makeText(activity,"Неверный логин или пароль",Toast.LENGTH_SHORT).show()
+                   }
                 }
-
             }
             else{
                 Toast.makeText(activity,"Вы не ввели логин или пароль",Toast.LENGTH_SHORT).show()
