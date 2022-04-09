@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Gggapp" >
         <activity
             android:name=".activities.BottomNavigationActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_bottom_navigation" />
         <activity
             android:name=".activities.MainActivity"
