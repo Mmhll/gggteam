@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ggg.gggapp.R
+import com.ggg.gggapp.database.Database
 import com.ggg.gggapp.dataclasses.MessageClass
 
 class MessengerAdapter(val data : ArrayList<MessageClass>, val context : Context) : RecyclerView.Adapter<MessengerAdapter.VH>() {
@@ -24,6 +25,8 @@ class MessengerAdapter(val data : ArrayList<MessageClass>, val context : Context
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
+        var users = Database().getUsers()
+
 
         Glide.with(context).load(data[position])
     }
