@@ -1,11 +1,12 @@
-package com.ggg.gggapp
+package com.ggg.gggapp.activities
 
-import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AlertDialog
+import com.ggg.gggapp.Auth
+import com.ggg.gggapp.R
 import com.ggg.gggapp.database.Database
 import com.ggg.gggapp.storage.Storage
 import com.google.firebase.database.DataSnapshot

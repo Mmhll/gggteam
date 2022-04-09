@@ -1,7 +1,7 @@
 package com.ggg.gggapp.storage
 
 import android.net.Uri
-import com.ggg.gggapp.User
+import com.ggg.gggapp.activities.User
 import com.google.firebase.storage.FirebaseStorage
 import kotlin.random.Random
 

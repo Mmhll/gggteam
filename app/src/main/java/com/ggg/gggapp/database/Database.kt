@@ -1,7 +1,7 @@
 package com.ggg.gggapp.database
 
 import android.util.Log
-import com.ggg.gggapp.User
+import com.ggg.gggapp.activities.User
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
