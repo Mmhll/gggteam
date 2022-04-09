@@ -8,6 +8,10 @@ import androidx.appcompat.app.AlertDialog
 import com.ggg.gggapp.Auth
 import com.ggg.gggapp.R
 import com.ggg.gggapp.database.Database
+import com.ggg.gggapp.databinding.ActivityMainBinding
+import com.ggg.gggapp.fragments.authes.AuthFragment
+import com.ggg.gggapp.fragments.authes.RegFragment
+import com.ggg.gggapp.fragments.home.HomeFragment
 import com.ggg.gggapp.storage.Storage
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -16,21 +20,22 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var rtDatabase : DatabaseReference
-    private lateinit var storage : FirebaseStorage
-    var user = User(name = "Yan", surname = "Gay", email = "yngy@ggg.com", password = "123456qwerty")
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         if(Auth().checkAuth()){
-
+            intent = Intent(this, BottomNavigationActivity::class.java)
+            startActivity(intent)
+            finish()
         }
         else{
-
+            supportFragmentManager.beginTransaction().replace(R.id.container_Fragment, AuthFragment())
+                .commit()
         }
-        startActivity(intent)
-
-
 //
 //        rtDatabase = Database().getFirebaseReference("Users")
 //        storage = FirebaseStorage.getInstance()
