@@ -28,20 +28,23 @@
             android:layout_marginTop="15dp"/>
 
         <EditText
-            android:layout_width="270dp"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             style="@style/authText"
             android:id="@+id/Login"
+            android:backgroundTint="@color/black"
             android:drawableLeft="@drawable/log"
-
+            android:hint="Email"
             />
 
         <EditText
-            android:layout_width="270dp"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             style="@style/authText"
             android:id="@+id/Password"
             android:drawableLeft="@drawable/pass"
+            android:hint="Password"
+            android:inputType="textPassword"
             />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -75,7 +78,8 @@
                 android:text="Sign Up"
                 android:gravity="center"
                 android:textColor="@color/or"
-                android:id="@+id/RegButton" />
+                android:id="@+id/RegButton"
+                />
 
         </LinearLayout>
 
