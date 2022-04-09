@@ -26,7 +26,7 @@ class RegFragment : Fragment() {
             if(!binding.avatarText.text.toString().isEmpty() && !binding.emailText.text.toString().isEmpty()
                 && !binding.nameText.text.toString().isEmpty() && !binding.patronymicText.text.toString().isEmpty()
                 && !binding.phoneNumberText.text.toString().isEmpty() && !binding.sexText.selectedItem.toString().isEmpty()
-                && !binding.surnameText.text.toString().isEmpty() && !binding.passwordText.text.toString().isEmpty()){
+                && !binding.surnameText.text.toString().isEmpty() && !binding.passwordText.text.toString().isEmpty() && binding.Check.isChecked){
                 dataClass.avatar = binding.avatarText.text.toString()
                 dataClass.email = binding.emailText.text.toString()
                 dataClass.name = binding.nameText.text.toString()
