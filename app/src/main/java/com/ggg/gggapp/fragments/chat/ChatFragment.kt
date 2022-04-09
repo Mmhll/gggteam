@@ -21,9 +21,8 @@ import kotlin.collections.ArrayList
 
 class ChatFragment : Fragment() {
 
-    private lateinit var binding: FragmentChatBinding
+    private var binding : FragmentChatBinding? = null
     private lateinit var rtDatabase: DatabaseReference
-    private lateinit var userArrayList: ArrayList<MessageClass>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,7 +32,6 @@ class ChatFragment : Fragment() {
             .getInstance("https://gggteam-67db1-default-rtdb.europe-west1.firebasedatabase.app")
             .getReference("Messenger")
         var array = ArrayList<MessageClass>()
-        userArrayList = ArrayList<MessageClass>()
         rtDatabase.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
@@ -43,8 +41,8 @@ class ChatFragment : Fragment() {
                         array.add(message!!)
                     }
 
-                    binding.recyclerChat.adapter = MessengerAdapter(array, requireContext())
-                    binding.recyclerChat.scrollToPosition(array.size-1)
+                    binding!!.recyclerChat.adapter = MessengerAdapter(array, requireContext())
+                    binding!!.recyclerChat.scrollToPosition(array.size-1)
                 }
             }
 
@@ -52,20 +50,26 @@ class ChatFragment : Fragment() {
 
             }
         })
-        binding.sendButton.setOnClickListener {
-            if (binding.messageChat.text.isNotEmpty()) {
+        binding!!.sendButton.setOnClickListener {
+            if (binding!!.messageChat.text.isNotEmpty()) {
                 val sdf = SimpleDateFormat("hh:mm")
                 val currentDate = sdf.format(Date())
                 Messenger().sendMessage(
                     message = MessageClass(
-                        messageText = binding.messageChat.text.toString(),
+                        messageText = binding!!.messageChat.text.toString(),
                         time = currentDate,
                         userId = Firebase.auth.uid
                     )
                 )
             }
         }
-        return binding.root
+        return binding!!.root
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
+
 
 }

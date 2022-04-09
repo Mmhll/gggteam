@@ -3,6 +3,7 @@ package com.ggg.gggapp.fragments.authes
 import android.app.Activity.RESULT_OK
 import android.app.AlertDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,15 +15,20 @@ import com.ggg.gggapp.database.Database
 import com.ggg.gggapp.databinding.FragmentRegBinding
 import com.ggg.gggapp.dataclasses.UserClass
 import com.ggg.gggapp.storage.Storage
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.UploadTask
 
 class RegFragment : Fragment() {
 
     private lateinit var binding: FragmentRegBinding
     private lateinit var auth : FirebaseAuth
     private lateinit var dataClass: UserClass
+    val firebaseStorage = FirebaseStorage.getInstance().getReference("Images")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -81,5 +87,8 @@ class RegFragment : Fragment() {
                 }
             }
         }
+    }
+    private fun uploadImage(uri: Uri){
+
     }
 }

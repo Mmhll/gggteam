@@ -18,8 +18,6 @@ import com.google.firebase.database.ValueEventListener
 class NewsAdapter(val data: ArrayList<NewsClass>, val context: Context) :
     RecyclerView.Adapter<NewsAdapter.VHH>() {
 
-    private var array = ArrayList<NewsClass>()
-
     class VHH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var image: ImageView = itemView.findViewById(R.id.titleImage)
         var title: TextView = itemView.findViewById(R.id.titleText)
@@ -32,26 +30,12 @@ class NewsAdapter(val data: ArrayList<NewsClass>, val context: Context) :
 
     override fun onBindViewHolder(holder: VHH, position: Int) {
 
-        FirebaseDatabase.getInstance("https://gggteam-67db1-default-rtdb.europe-west1.firebasedatabase.app")
-            .getReference("News").addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.exists()) {
-
-                        for (snap in snapshot.children) {
-                            array.add(snap.getValue(NewsClass::class.java)!!)
-                        }
-                        var news = NewsClass()
-                        Glide.with(context).load(news.image).centerCrop().circleCrop().into(holder.image)
-                        holder.title.text = news.titleText
-                        holder.description.text = news.descriptionText
-                    }
-                }
-                override fun onCancelled(error: DatabaseError) {
-
-                }
-            })
-
+        Glide.with(context).load(data[holder.adapterPosition].image).centerCrop()
+            .into(holder.image)
+        holder.title.text = data[holder.adapterPosition].titleText
+        holder.description.text = data[holder.adapterPosition].descriptionText
     }
+
 
     override fun getItemCount(): Int {
         return data.size

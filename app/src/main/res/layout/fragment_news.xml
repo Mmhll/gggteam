@@ -8,7 +8,7 @@
     tools:context=".fragments.news.NewsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerChat"
+        android:id="@+id/recyclerNews"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_width="match_parent"
