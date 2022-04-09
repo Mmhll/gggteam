@@ -44,8 +44,12 @@ class NewsFragment : Fragment() {
                             val news = snap.getValue(NewsClass::class.java)
                             array.add(news!!)
                         }
+                        try {
+                            binding.recyclerNews.adapter = NewsAdapter(array, requireContext())
+                        }
+                        catch (e : Exception){
 
-                        binding.recyclerNews.adapter = NewsAdapter(array, requireContext())
+                        }
                     }
                 }
 

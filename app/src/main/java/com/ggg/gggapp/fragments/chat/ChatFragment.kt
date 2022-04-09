@@ -21,7 +21,7 @@ import kotlin.collections.ArrayList
 
 class ChatFragment : Fragment() {
 
-    private var binding : FragmentChatBinding? = null
+    private var binding: FragmentChatBinding? = null
     private lateinit var rtDatabase: DatabaseReference
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,9 +40,12 @@ class ChatFragment : Fragment() {
                         val message = snap.getValue(MessageClass::class.java)
                         array.add(message!!)
                     }
+                    try {
+                        binding!!.recyclerChat.adapter = MessengerAdapter(array, requireContext())
+                        binding!!.recyclerChat.scrollToPosition(array.size - 1)
+                    } catch (e: Exception) {
 
-                    binding!!.recyclerChat.adapter = MessengerAdapter(array, requireContext())
-                    binding!!.recyclerChat.scrollToPosition(array.size-1)
+                    }
                 }
             }
 
