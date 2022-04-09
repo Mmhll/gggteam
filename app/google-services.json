@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "481965361564",
+    "firebase_url": "https://gggteam-67db1-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "gggteam-67db1",
+    "storage_bucket": "gggteam-67db1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481965361564:android:a5e104cc1c1f09f9526059",
+        "android_client_info": {
+          "package_name": "com.ggg.gggapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "481965361564-32qbt6prtnu5mm2lvck7ndtlc9ubvm77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABNwkC9kz7FzA3UXSkRIsbEcMxDjEJufs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "481965361564-32qbt6prtnu5mm2lvck7ndtlc9ubvm77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

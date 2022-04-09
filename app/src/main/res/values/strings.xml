@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">gggapp</string>
+    <string name="db_url">https://gggteam-67db1-default-rtdb.europe-west1.firebasedatabase.app</string>
+</resources>
