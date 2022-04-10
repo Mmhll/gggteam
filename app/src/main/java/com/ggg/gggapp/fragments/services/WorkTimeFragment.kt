@@ -19,6 +19,4 @@ class WorkTimeFragment : Fragment() {
         binding = FragmentWorkTimeBinding.inflate(layoutInflater)
         return binding!!.root
     }
-
-
 }
