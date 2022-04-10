@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.ggg.gggapp.databinding.FragmentServicesBinding
+import com.ggg.gggapp.fragments.authes.RegFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -29,12 +30,9 @@ class ServicesFragment : Fragment() {
         _binding = FragmentServicesBinding.inflate(inflater, container, false)
 
         binding.hoursButton.setOnClickListener {
+            binding.fragmentContainerServices.visibility = View.VISIBLE
             requireActivity().supportFragmentManager.beginTransaction()
-                .add(WorkTimeFragment(), "work")
-                .commit()
-                .let {
-                    Log.e("it", it.toString())
-                }
+                .replace(com.ggg.gggapp.R.id.fragmentContainerServices, WorkTimeFragment()).commit()
         }
         return binding.root
     }
