@@ -15,6 +15,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
+import java.lang.Exception
 
 class ProfileFragment : Fragment() {
 
@@ -47,24 +48,28 @@ class ProfileFragment : Fragment() {
                         }
                     }
                     if (user != null){
-
-                        Glide.with(requireActivity()).load(user.avatar).into(binding.imageViewProfile)
-                        binding.nameProfile.setText(user.name)
-                        binding.surnameProfile.setText(user.surname)
-                        binding.phoneProfile.setText(user.phoneNumber)
-                        binding.emailProfile.setText(user.email)
-                        binding.changeButton.setOnClickListener {
-                            if (
-                                binding.nameProfile.text.isNotEmpty() &&
-                                binding.surnameProfile.text.isNotEmpty() &&
-                                binding.phoneProfile.text.isNotEmpty() &&
-                                binding.emailProfile.text.isNotEmpty()
-                            )
-                                user.name = binding.nameProfile.text.toString()
+                        try {
+                            Glide.with(requireActivity()).load(user.avatar)
+                                .into(binding.imageViewProfile)
+                            binding.nameProfile.setText(user.name)
+                            binding.surnameProfile.setText(user.surname)
+                            binding.phoneProfile.setText(user.phoneNumber)
+                            binding.emailProfile.setText(user.email)
+                            binding.changeButton.setOnClickListener {
+                                if (
+                                    binding.nameProfile.text.isNotEmpty() &&
+                                    binding.surnameProfile.text.isNotEmpty() &&
+                                    binding.phoneProfile.text.isNotEmpty() &&
+                                    binding.emailProfile.text.isNotEmpty()
+                                )
+                                    user.name = binding.nameProfile.text.toString()
                                 user.surname = binding.surnameProfile.text.toString()
                                 user.phoneNumber = binding.phoneProfile.text.toString()
                                 user.email = binding.emailProfile.text.toString()
                                 Database().changeUser(user)
+                            }
+                        }catch (e : Exception){
+
                         }
                     }
 
