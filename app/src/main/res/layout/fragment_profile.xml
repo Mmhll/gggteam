@@ -61,6 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:width="1dp"
+                android:gravity="end"
                 style="@style/TextView"
                 android:id="@+id/nameProfile"
                 android:textStyle="bold"
@@ -94,6 +95,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:width="1dp"
+
+                android:gravity="end"
                 style="@style/TextView"
                 android:id="@+id/surnameProfile"
                 android:textStyle="bold"
@@ -127,6 +130,7 @@
                 android:layout_height="wrap_content"
                 android:width="1dp"
                 style="@style/TextView"
+                android:gravity="end"
                 android:id="@+id/phoneProfile"
                 android:textStyle="bold"
                 android:textColor="@color/grean"/>
@@ -158,6 +162,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:width="1dp"
+                android:gravity="end"
                 style="@style/TextView"
                 android:id="@+id/emailProfile"
                 android:textStyle="bold"

@@ -1,5 +1,6 @@
 package com.ggg.gggapp.fragments.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -71,6 +72,7 @@ class ProfileFragment : Fragment() {
 
                     binding.logoutButton.setOnClickListener{
                         Firebase.auth.signOut()
+                        requireActivity().finish()
                     }
                 }
             }
