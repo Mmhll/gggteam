@@ -45,7 +45,33 @@ class ProfileFragment : Fragment() {
                             break
                         }
                     }
+                    if (user != null){
 
+                        Glide.with(requireActivity()).load(user.avatar).into(binding.imageViewProfile)
+                        binding.nameProfile.setText(user.name)
+                        binding.surnameProfile.setText(user.surname)
+                        binding.phoneProfile.setText(user.phoneNumber)
+                        binding.emailProfile.setText(user.email)
+                        binding.changeButton.setOnClickListener {
+                            if (
+                                binding.nameProfile.text.isNotEmpty() &&
+                                binding.surnameProfile.text.isNotEmpty() &&
+                                binding.phoneProfile.text.isNotEmpty() &&
+                                binding.emailProfile.text.isNotEmpty()
+                            )
+                                user.name = binding.nameProfile.text.toString()
+                                user.surname = binding.surnameProfile.text.toString()
+                                user.phoneNumber = binding.phoneProfile.text.toString()
+                                user.email = binding.emailProfile.text.toString()
+                                Database().changeUser(user)
+                        }
+                    }
+
+
+
+                    binding.logoutButton.setOnClickListener{
+                        Firebase.auth.signOut()
+                    }
                 }
             }
 
