@@ -17,6 +17,7 @@ class AddNewsFragment : Fragment() {
 
     private lateinit var binding: FragmentAddNewsBinding
     private lateinit var rtDatabase: DatabaseReference
+    private lateinit var text : String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,13 +28,23 @@ class AddNewsFragment : Fragment() {
             if (!binding.text.text.toString().isEmpty() && !binding.title.text.toString()
                     .isEmpty() && !binding.url.text.toString().isEmpty()
             ) {
+                if(binding.News.isChecked){
+                    text = "News"
+                }
+                else if(binding.Event.isChecked){
+                    text = "Event"
+                }
+                else{
+                    text = "null"
+                }
                 var key = Database().getFirebaseReference("News").push().key
                 rtDatabase = Database().getFirebaseReference("News")
                 rtDatabase.child(key.toString()).setValue(
                     NewsClass(
                         binding.text.text.toString(),
                         binding.url.text.toString(),
-                        binding.title.text.toString()
+                        binding.title.text.toString(),
+                        text
                     )
                 )
                 requireActivity().supportFragmentManager.beginTransaction()

@@ -31,7 +31,24 @@
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             style="@style/RegText"
-            android:hint="Uri на фото"/>
+            android:hint="Сссылка на фото"/>
+
+        <RadioGroup
+            style="@style/RegText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/News"
+                android:text="Новость"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <RadioButton
+                android:id="@+id/Event"
+                android:text="Событие"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        </RadioGroup>
+
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/AddNews"
