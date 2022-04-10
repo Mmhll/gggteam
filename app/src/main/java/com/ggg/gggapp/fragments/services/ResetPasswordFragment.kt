@@ -2,7 +2,6 @@ package com.ggg.gggapp.fragments.services
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -27,17 +26,7 @@ class ResetPasswordFragment : Fragment() {
         binding = FragmentResetPasswordBinding.inflate(inflater)
         auth = Firebase.auth
         binding.resetPassword.setOnClickListener {
-            /* auth.currentUser!!.updatePassword(binding.newPassword.text.toString()).addOnCompleteListener{
-                 if(it.isSuccessful){
-                     Toast.makeText(activity,"Пароль успешно обновлен", Toast.LENGTH_SHORT).show()
-                     requireActivity().supportFragmentManager.beginTransaction()
-                         .replace(R.id.layoutFragment, WorkTimeFragment()).commit()
-                 }
-                 else{
-                     Toast.makeText(activity,"Произошла чудовищная ошибка $it", Toast.LENGTH_SHORT).show()
 
-                 }
-             }*/
             val prefs = requireActivity().getSharedPreferences("cred", Context.MODE_PRIVATE)
             auth.currentUser!!.reauthenticate(
                 EmailAuthProvider.getCredential(
@@ -49,6 +38,7 @@ class ResetPasswordFragment : Fragment() {
                     auth.currentUser!!.updatePassword(binding.newPassword.text.toString())
                         .addOnCompleteListener { it1 ->
                             if (it1.isSuccessful) {
+                                prefs.edit().putString("Password", binding.newPassword.text.toString()).apply()
                                 Toast.makeText(requireContext(), "YEP", Toast.LENGTH_SHORT).show()
                             } else {
                                 Toast.makeText(
