@@ -28,6 +28,7 @@ class AddNewsFragment : Fragment() {
                 var key = Database().getFirebaseReference("News").push().key
             rtDatabase.child(key.toString()).setValue(
                 NewsClass(
+
                     binding.text.text.toString(),
                     binding.url.text.toString(),
                     binding.title.text.toString()
