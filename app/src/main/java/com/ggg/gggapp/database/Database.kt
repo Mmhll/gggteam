@@ -29,6 +29,12 @@ class Database {
         }
     }
 
+    fun changeUser(user : UserClass){
+        getFirebaseReference("Users").child(Firebase.auth.uid.toString()).setValue(user).addOnCompleteListener {
+            Log.e("TAG", "Success")
+        }
+    }
+
     fun getUsers() : ArrayList<UserClass>{
         var array = ArrayList<UserClass>()
         getFirebaseReference("Users").addValueEventListener(object : ValueEventListener{

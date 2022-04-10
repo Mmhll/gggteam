@@ -55,13 +55,12 @@
                 style="@style/TextView"
                 android:textStyle="italic"/>
 
-            <TextView
+            <EditText
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:width="1dp"
-                android:text="..."
                 style="@style/TextView"
-                android:gravity="right"
                 android:id="@+id/nameProfile"
                 android:textStyle="bold"
                 android:textColor="@color/grean"
@@ -89,13 +88,12 @@
                 style="@style/TextView"
                 android:textStyle="italic"/>
 
-            <TextView
+            <EditText
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:width="1dp"
-                android:text="..."
                 style="@style/TextView"
-                android:gravity="right"
                 android:id="@+id/surnameProfile"
                 android:textStyle="bold"
                 android:textColor="@color/grean"/>
@@ -122,13 +120,12 @@
                 style="@style/TextView"
                 android:textStyle="italic"/>
 
-            <TextView
+            <EditText
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:width="1dp"
-                android:text="..."
                 style="@style/TextView"
-                android:gravity="right"
                 android:id="@+id/phoneProfile"
                 android:textStyle="bold"
                 android:textColor="@color/grean"/>
@@ -155,13 +152,12 @@
                 style="@style/TextView"
                 android:textStyle="italic"/>
 
-            <TextView
+            <EditText
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:width="1dp"
-                android:text="..."
                 style="@style/TextView"
-                android:gravity="right"
                 android:id="@+id/emailProfile"
                 android:textStyle="bold"
                 android:textColor="@color/grean"/>
@@ -173,9 +169,18 @@
             android:background="@color/or"
             android:layout_height="1sp"
             android:layout_gravity="center"/>
-
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/logOut"
+            android:id="@+id/changeButton"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Изменить"
+            android:background="@drawable/conner"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp"
+            android:textColor="@color/white"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/logoutButton"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="Выйти"
