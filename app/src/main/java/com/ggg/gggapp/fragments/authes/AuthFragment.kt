@@ -1,5 +1,6 @@
 package com.ggg.gggapp.fragments.authes
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -33,6 +34,9 @@ class AuthFragment : Fragment() {
             if(!binding.Login.text.toString().isEmpty() && !binding.Password.text.toString().isEmpty()){
                 auth.signInWithEmailAndPassword(binding.Login.text.toString() ,binding.Password.text.toString()).addOnCompleteListener{
                    if(it.isSuccessful){
+                       var prefs = requireActivity().getSharedPreferences("cred", Context.MODE_PRIVATE)
+                       prefs.edit().putString("Email", binding.Login.text.toString())
+                           .putString("Password", binding.Password.text.toString()).apply()
                        requireActivity().startActivity(Intent(requireActivity(),BottomNavigationActivity::class.java))
                        requireActivity().finish()
                    }else{

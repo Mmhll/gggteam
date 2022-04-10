@@ -9,6 +9,7 @@ import com.ggg.gggapp.R
 import com.ggg.gggapp.databinding.ActivityBottomNavigationBinding
 import com.ggg.gggapp.fragments.authes.AuthFragment
 import com.ggg.gggapp.fragments.authes.RegFragment
+import com.ggg.gggapp.fragments.services.RolesFragment
 import com.ggg.gggapp.fragments.services.WorkTimeFragment
 
 class BottomNavigationActivity : AppCompatActivity() {
@@ -29,9 +30,14 @@ class BottomNavigationActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        if (supportFragmentManager.findFragmentById(R.id.fragmentContainerServices) == WorkTimeFragment()) {
+        if (supportFragmentManager.findFragmentById(R.id.layoutFragment) == WorkTimeFragment()) {
             supportFragmentManager.beginTransaction()
                 .remove(WorkTimeFragment())
+                .commit()
+        }
+        else if (supportFragmentManager.findFragmentById(R.id.layoutFragment) == RolesFragment()){
+            supportFragmentManager.beginTransaction()
+                .remove(RolesFragment())
                 .commit()
         }
     }

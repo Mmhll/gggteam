@@ -16,10 +16,6 @@ import com.google.firebase.ktx.R
 class ServicesFragment : Fragment() {
 
     private var _binding: FragmentServicesBinding? = null
-    private lateinit var auth: FirebaseAuth
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -30,14 +26,19 @@ class ServicesFragment : Fragment() {
         _binding = FragmentServicesBinding.inflate(inflater, container, false)
 
         binding.hoursButton.setOnClickListener {
-            binding.fragmentContainerServices.visibility = View.VISIBLE
+            binding.layoutFragment.visibility = View.VISIBLE
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(com.ggg.gggapp.R.id.fragmentContainerServices, WorkTimeFragment()).commit()
+                .replace(com.ggg.gggapp.R.id.layoutFragment, WorkTimeFragment()).commit()
+        }
+        binding.roleButton.setOnClickListener {
+            binding.layoutFragment.visibility = View.VISIBLE
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(com.ggg.gggapp.R.id.layoutFragment, RolesFragment()).commit()
         }
         binding.changePassword.setOnClickListener{
-            binding.fragmentContainerServices.visibility = View.VISIBLE
+            binding.layoutFragment.visibility = View.VISIBLE
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(com.ggg.gggapp.R.id.fragmentContainerServices, ResetPasswordFragment()).commit()
+                .replace(com.ggg.gggapp.R.id.layoutFragment, ResetPasswordFragment()).commit()
         }
         return binding.root
     }
