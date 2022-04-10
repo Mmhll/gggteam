@@ -32,22 +32,22 @@ class ProfileFragment : Fragment() {
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         var users = ArrayList<UserClass>()
-        Database().getFirebaseReference("Users").addValueEventListener(object : ValueEventListener{
+        Database().getFirebaseReference("Users").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()){
-                    for (snap in snapshot.children){
+                if (snapshot.exists()) {
+                    for (snap in snapshot.children) {
                         var user = snap.getValue(UserClass::class.java)
                         users.add(user!!)
                     }
-                    var user : UserClass? = null
+                    var user: UserClass? = null
 
-                    for (i in users){
-                        if (i.uid == Firebase.auth.uid){
+                    for (i in users) {
+                        if (i.uid == Firebase.auth.uid) {
                             user = i
                             break
                         }
                     }
-                    if (user != null){
+                    if (user != null) {
                         try {
                             Glide.with(requireActivity()).load(user.avatar)
                                 .into(binding.imageViewProfile)
@@ -68,14 +68,13 @@ class ProfileFragment : Fragment() {
                                 user.email = binding.emailProfile.text.toString()
                                 Database().changeUser(user)
                             }
-                        }catch (e : Exception){
-
+                        } catch (e: Exception) {
                         }
                     }
 
 
 
-                    binding.logoutButton.setOnClickListener{
+                    binding.logoutButton.setOnClickListener {
                         Firebase.auth.signOut()
                         requireActivity().finish()
                     }

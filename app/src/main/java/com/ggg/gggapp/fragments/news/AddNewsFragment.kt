@@ -24,20 +24,21 @@ class AddNewsFragment : Fragment() {
     ): View? {
         binding = FragmentAddNewsBinding.inflate(inflater)
         binding.AddNews.setOnClickListener {
-            if(!binding.text.text.toString().isEmpty() && !binding.title.text.toString().isEmpty() && !binding.url.text.toString().isEmpty()){
+            if (!binding.text.text.toString().isEmpty() && !binding.title.text.toString()
+                    .isEmpty() && !binding.url.text.toString().isEmpty()
+            ) {
                 var key = Database().getFirebaseReference("News").push().key
-            rtDatabase.child(key.toString()).setValue(
-                NewsClass(
-
-                    binding.text.text.toString(),
-                    binding.url.text.toString(),
-                    binding.title.text.toString()
+                rtDatabase = Database().getFirebaseReference("News")
+                rtDatabase.child(key.toString()).setValue(
+                    NewsClass(
+                        binding.text.text.toString(),
+                        binding.url.text.toString(),
+                        binding.title.text.toString()
                     )
-            )
+                )
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.fram_cont, NewsFragment()).commit()
-            }
-            else{
+            } else {
                 Toast.makeText(activity, "Вы не заполнили какое-то поле", Toast.LENGTH_SHORT).show()
             }
         }
