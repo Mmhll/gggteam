@@ -5,26 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.services.ServicesFragment">
-
-    <TextView
-        android:id="@+id/text_home"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/docsButton"
 
-    <Button
-        android:id="@+id/logOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Заказ справки"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/hoursButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="График работы"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/changePassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Изменение пароля "/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/roleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Запрос роли"/>
+
+
+    </LinearLayout>
+    <FrameLayout
+        android:visibility="invisible"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Выйти"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent"
+        android:id="@+id/fragmentContainerServices"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
