@@ -32,7 +32,7 @@
                     android:id="@+id/imageViewProfile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/ic_launcher_background"
+                    android:src="@mipmap/ic_launcher"
                     android:background="@color/white"
                     android:scaleType="centerCrop"
 

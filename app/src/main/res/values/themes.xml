@@ -51,4 +51,13 @@
         <item name="android:padding">10dp</item>
         <item name="android:textSize">15dp</item>
     </style>
+
+    <style name="Bott">
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/conner</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">15dp</item>
+    </style>
 </resources>

@@ -9,29 +9,35 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent">
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/docsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Заказ справки"/>
+            android:text="Заказ справки"
+            style="@style/Bott"
+            android:layout_marginTop="150dp"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/hoursButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="График работы"/>
+            android:text="График работы"
+            style="@style/Bott"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/changePassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Изменение пароля "/>
+            android:text="Изменение пароля "
+            style="@style/Bott"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/roleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Запрос роли"/>
+            android:text="Запрос роли"
+            style="@style/Bott"/>
     </LinearLayout>
     <FrameLayout
         android:id="@+id/layoutFragment"
