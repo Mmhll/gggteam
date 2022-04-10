@@ -27,6 +27,7 @@ class NewsFragment : Fragment() {
     private lateinit var binding: FragmentNewsBinding
     private lateinit var rtDatabase: DatabaseReference
     private lateinit var auth: FirebaseAuth
+    private lateinit var type: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +35,42 @@ class NewsFragment : Fragment() {
     ): View? {
         try{
             binding = FragmentNewsBinding.inflate(inflater)
+            type = "News"
+            binding.sorting.setOnClickListener{
+                if(type.equals("News")){
+                    type = "Event"
+                }
+                else{
+                    type = "News"
+                }
+                rtDatabase = FirebaseDatabase
+                        .getInstance("https://gggteam-67db1-default-rtdb.europe-west1.firebasedatabase.app")
+                    .getReference("News")
+                var array = ArrayList<NewsClass>()
+                rtDatabase.addValueEventListener(object : ValueEventListener{
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (snapshot.exists()) {
+                            array.clear()
+                            for (snap in snapshot.children) {
+                                if(snap.getValue(NewsClass::class.java)!!.type.equals(type)){
+                                    val news = snap.getValue(NewsClass::class.java)
+                                    array.add(news!!)
+                                }
+                            }
+                            try {
+                                binding.recyclerNews.adapter = NewsAdapter(array, requireContext())
+                            }
+                            catch (e : Exception){
+
+                            }
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+
+                    }
+                })
+            }
             getData()
             auth = Firebase.auth
             rtDatabase = FirebaseDatabase
@@ -50,8 +87,10 @@ class NewsFragment : Fragment() {
                     if (snapshot.exists()) {
                         array.clear()
                         for (snap in snapshot.children) {
+                            if(snap.getValue(NewsClass::class.java)!!.type.equals(type)){
                             val news = snap.getValue(NewsClass::class.java)
                             array.add(news!!)
+                            }
                         }
                         try {
                             binding.recyclerNews.adapter = NewsAdapter(array, requireContext())
