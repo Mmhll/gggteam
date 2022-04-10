@@ -34,6 +34,11 @@ class ServicesFragment : Fragment() {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(com.ggg.gggapp.R.id.fragmentContainerServices, WorkTimeFragment()).commit()
         }
+        binding.changePassword.setOnClickListener{
+            binding.fragmentContainerServices.visibility = View.VISIBLE
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(com.ggg.gggapp.R.id.fragmentContainerServices, ResetPasswordFragment()).commit()
+        }
         return binding.root
     }
 
