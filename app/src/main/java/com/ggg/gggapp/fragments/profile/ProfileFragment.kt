@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.ggg.gggapp.activities.BottomNavigationActivity
+import com.ggg.gggapp.activities.MainActivity
 import com.ggg.gggapp.database.Database
 import com.ggg.gggapp.databinding.FragmentProfileBinding
 import com.ggg.gggapp.dataclasses.UserClass
@@ -76,6 +78,8 @@ class ProfileFragment : Fragment() {
 
                     binding.logoutButton.setOnClickListener {
                         Firebase.auth.signOut()
+                        requireActivity().startActivity(Intent(requireActivity(),
+                            MainActivity::class.java))
                         requireActivity().finish()
                     }
                 }
