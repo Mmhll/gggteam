@@ -54,7 +54,7 @@ class MessengerAdapter(val data: ArrayList<MessageClass>, val context: Context) 
                     if (user != null) {
                         Glide.with(context).load(user.avatar).centerCrop().circleCrop().into(holder.image)
                         holder.message.text = data[holder.adapterPosition].messageText
-                        holder.initials.text = user.name + user.surname
+                        holder.initials.text = user.name + " " + user.surname
                         holder.time.text = data[holder.adapterPosition].time
                     }
                 }

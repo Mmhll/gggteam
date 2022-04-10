@@ -26,9 +26,10 @@ import com.google.firebase.storage.UploadTask
 class RegFragment : Fragment() {
 
     private lateinit var binding: FragmentRegBinding
-    private lateinit var auth : FirebaseAuth
+    private lateinit var auth: FirebaseAuth
     private lateinit var dataClass: UserClass
     val firebaseStorage = FirebaseStorage.getInstance().getReference("Images")
+    var image = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,57 +39,74 @@ class RegFragment : Fragment() {
         auth = Firebase.auth
         dataClass = UserClass()
         binding.addImage.setOnClickListener {
-            AlertDialog.Builder(activity).setPositiveButton("Сделать снимок"){ p0, p1 ->
+            AlertDialog.Builder(activity).setPositiveButton("Сделать снимок") { p0, p1 ->
                 val intent = Intent(Intent.ACTION_PICK)
                 intent.type = "image/*"
                 startActivityForResult(intent, 1)
-            }.setNegativeButton("Использовать ссылку"){ _,_ ->
+            }.setNegativeButton("Использовать ссылку") { _, _ ->
 
-           }.create().show()
+            }.create().show()
         }
-        binding.RegButton.setOnClickListener{
-            if( !binding.emailText.text.toString().isEmpty() && binding.Check.isChecked
-                && !binding.nameText.text.toString().isEmpty() && !binding.patronymicText.text.toString().isEmpty()
-                && !binding.phoneNumberText.text.toString().isEmpty() && !binding.sexText.selectedItem.toString().isEmpty()
-                && !binding.surnameText.text.toString().isEmpty() && !binding.passwordText.text.toString().isEmpty() ){
-                dataClass.avatar = binding.avatarText.text.toString()
-                dataClass.email = binding.emailText.text.toString()
-                dataClass.name = binding.nameText.text.toString()
-                dataClass.patronymic = binding.patronymicText.text.toString()
-                dataClass.phoneNumber = binding.phoneNumberText.text.toString()
-                dataClass.position = "User"
-                dataClass.sex = binding.sexText.selectedItem.toString()
-                dataClass.surname = binding.surnameText.text.toString()
-                auth.createUserWithEmailAndPassword(binding.emailText.text.toString(), binding.passwordText.text.toString()).addOnCompleteListener{
-                    if(it.isSuccessful){
-                        dataClass.uid = Firebase.auth.uid
-                        Database().putUser(Database().getUsers(), dataClass)
-                        requireActivity().startActivity(Intent(requireActivity(),BottomNavigationActivity::class.java))
-                        requireActivity().finish()
+        binding.RegButton.setOnClickListener {
+            if (!binding.emailText.text.toString().isEmpty() && binding.Check.isChecked
+                && !binding.nameText.text.toString()
+                    .isEmpty() && !binding.patronymicText.text.toString().isEmpty()
+                && !binding.phoneNumberText.text.toString()
+                    .isEmpty() && !binding.sexText.selectedItem.toString().isEmpty()
+                && !binding.surnameText.text.toString()
+                    .isEmpty() && !binding.passwordText.text.toString().isEmpty()
+            ) {
+                if (image.isNotEmpty() || binding.avatarText.text.toString().isNotEmpty()) {
+                    if (image.isNotEmpty()) {
+                        dataClass.avatar = image
+                    } else {
+                        dataClass.avatar = binding.avatarText.text.toString()
                     }
-                    else{
-                        Toast.makeText(activity, "Регистрация провалена", Toast.LENGTH_SHORT).show()
+                    dataClass.email = binding.emailText.text.toString()
+                    dataClass.name = binding.nameText.text.toString()
+                    dataClass.patronymic = binding.patronymicText.text.toString()
+                    dataClass.phoneNumber = binding.phoneNumberText.text.toString()
+                    dataClass.position = "User"
+                    dataClass.sex = binding.sexText.selectedItem.toString()
+                    dataClass.surname = binding.surnameText.text.toString()
+                    auth.createUserWithEmailAndPassword(
+                        binding.emailText.text.toString(),
+                        binding.passwordText.text.toString()
+                    ).addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            dataClass.uid = Firebase.auth.uid
+                            Database().putUser(Database().getUsers(), dataClass)
+                            requireActivity().startActivity(
+                                Intent(
+                                    requireActivity(),
+                                    BottomNavigationActivity::class.java
+                                )
+                            )
+                            requireActivity().finish()
+                        } else {
+                            Toast.makeText(activity, "Регистрация провалена", Toast.LENGTH_SHORT)
+                                .show()
+                        }
                     }
                 }
-            }
-            else{
-                Toast.makeText(activity, "Вы оставили какое-то поле пустым", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(activity, "Вы оставили какое-то поле пустым", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
         return binding.root
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        when (requestCode){
-            1->{
-                if (resultCode == RESULT_OK){
+        when (requestCode) {
+            1 -> {
+                if (resultCode == RESULT_OK) {
                     var uri = data?.data!!
-                    Storage().uploadImage(uri, dataClass)
+                    image =
+                        "https://firebasestorage.googleapis.com/v0/b/gggteam-67db1.appspot.com/o/images%2FScreenshot_1.png?alt=media&token=eada8281-9e33-4d7c-ae45-a1258c2e25e8"
                 }
             }
         }
-    }
-    private fun uploadImage(uri: Uri){
-
     }
 }
