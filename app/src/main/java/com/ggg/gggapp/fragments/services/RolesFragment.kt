@@ -13,7 +13,9 @@ import com.ggg.gggapp.dataclasses.RoleClass
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RolesFragment : Fragment() {
     private var binding: FragmentRolesBinding? = null
     override fun onCreateView(

@@ -7,11 +7,11 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ggg.gggapp.R
 import com.ggg.gggapp.databinding.ActivityBottomNavigationBinding
-import com.ggg.gggapp.fragments.authes.AuthFragment
-import com.ggg.gggapp.fragments.authes.RegFragment
-import com.ggg.gggapp.fragments.services.RolesFragment
-import com.ggg.gggapp.fragments.services.WorkTimeFragment
+import com.ggg.gggapp.viewmodel.fragment_viewmodel.services.RolesViewModel
+import com.ggg.gggapp.viewmodel.fragment_viewmodel.services.WorkTimeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BottomNavigationActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBottomNavigationBinding
@@ -30,14 +30,14 @@ class BottomNavigationActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        if (supportFragmentManager.findFragmentById(R.id.layoutFragment) == WorkTimeFragment()) {
+        if (supportFragmentManager.findFragmentById(R.id.layoutFragment) == WorkTimeViewModel()) {
             supportFragmentManager.beginTransaction()
-                .remove(WorkTimeFragment())
+                .remove(WorkTimeViewModel())
                 .commit()
         }
-        else if (supportFragmentManager.findFragmentById(R.id.layoutFragment) == RolesFragment()){
+        else if (supportFragmentManager.findFragmentById(R.id.layoutFragment) == RolesViewModel()){
             supportFragmentManager.beginTransaction()
-                .remove(RolesFragment())
+                .remove(RolesViewModel())
                 .commit()
         }
     }

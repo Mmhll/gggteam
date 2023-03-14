@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.ggg.gggapp.R
 import com.ggg.gggapp.databinding.FragmentWorkTimeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class WorkTimeFragment : Fragment() {
 
     private var binding : FragmentWorkTimeBinding? = null

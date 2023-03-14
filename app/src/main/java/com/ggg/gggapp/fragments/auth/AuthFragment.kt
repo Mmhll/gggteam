@@ -1,4 +1,4 @@
-package com.ggg.gggapp.fragments.authes
+package com.ggg.gggapp.fragments.auth
 
 import android.content.Context
 import android.content.Intent
@@ -14,7 +14,9 @@ import com.ggg.gggapp.databinding.FragmentAuthBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AuthFragment : Fragment() {
 
     private lateinit var binding: FragmentAuthBinding
@@ -28,7 +30,7 @@ class AuthFragment : Fragment() {
         auth = Firebase.auth
         binding.RegButton.setOnClickListener{
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.container_Fragment, RegFragment()).commit()
+                .replace(R.id.container_Fragment, RegistrationFragment()).commit()
         }
         binding.AuthButton.setOnClickListener{
             if(!binding.Login.text.toString().isEmpty() && !binding.Password.text.toString().isEmpty()){

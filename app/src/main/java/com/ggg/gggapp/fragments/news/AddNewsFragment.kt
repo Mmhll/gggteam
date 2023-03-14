@@ -12,7 +12,9 @@ import com.ggg.gggapp.databinding.FragmentAddNewsBinding
 import com.ggg.gggapp.databinding.FragmentNewsBinding
 import com.ggg.gggapp.dataclasses.NewsClass
 import com.google.firebase.database.DatabaseReference
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AddNewsFragment : Fragment() {
 
     private lateinit var binding: FragmentAddNewsBinding

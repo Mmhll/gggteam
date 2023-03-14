@@ -1,29 +1,26 @@
-package com.ggg.gggapp.fragments.authes
+package com.ggg.gggapp.fragments.auth
 
 import android.app.Activity.RESULT_OK
 import android.app.AlertDialog
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.ggg.gggapp.activities.BottomNavigationActivity
 import com.ggg.gggapp.database.Database
 import com.ggg.gggapp.databinding.FragmentRegBinding
 import com.ggg.gggapp.dataclasses.UserClass
-import com.ggg.gggapp.storage.Storage
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
-import com.google.firebase.storage.UploadTask
+import dagger.hilt.android.AndroidEntryPoint
 
-class RegFragment : Fragment() {
+@AndroidEntryPoint
+class RegistrationFragment : Fragment() {
 
     private lateinit var binding: FragmentRegBinding
     private lateinit var auth: FirebaseAuth

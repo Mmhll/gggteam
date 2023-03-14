@@ -7,13 +7,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.ggg.gggapp.databinding.FragmentServicesBinding
-import com.ggg.gggapp.fragments.authes.RegFragment
-import com.google.firebase.auth.FirebaseAuth
+import com.ggg.gggapp.viewmodel.fragment_viewmodel.services.RolesViewModel
+import com.ggg.gggapp.viewmodel.fragment_viewmodel.services.WorkTimeViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.ktx.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ServicesFragment : Fragment() {
 
     private var _binding: FragmentServicesBinding? = null
@@ -29,17 +30,17 @@ class ServicesFragment : Fragment() {
         binding.hoursButton.setOnClickListener {
             binding.layoutFragment.visibility = View.VISIBLE
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(com.ggg.gggapp.R.id.layoutFragment, WorkTimeFragment()).commit()
+                .replace(com.ggg.gggapp.R.id.layoutFragment, WorkTimeViewModel()).commit()
         }
         binding.roleButton.setOnClickListener {
             binding.layoutFragment.visibility = View.VISIBLE
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(com.ggg.gggapp.R.id.layoutFragment, RolesFragment()).commit()
+                .replace(com.ggg.gggapp.R.id.layoutFragment, RolesViewModel()).commit()
         }
         binding.changePassword.setOnClickListener{
             binding.layoutFragment.visibility = View.VISIBLE
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(com.ggg.gggapp.R.id.layoutFragment, ResetPasswordFragment()).commit()
+                .replace(com.ggg.gggapp.R.id.layoutFragment, ResetPasswordViewModel()).commit()
         }
         binding.docsButton.setOnClickListener {
             var reference = FirebaseDatabase.getInstance().getReference("docs")

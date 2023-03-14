@@ -1,12 +1,10 @@
 package com.ggg.gggapp.fragments.chat
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.ggg.gggapp.adapters.MessengerAdapter
 import com.ggg.gggapp.database.Messenger
 import com.ggg.gggapp.databinding.FragmentChatBinding
@@ -14,11 +12,11 @@ import com.ggg.gggapp.dataclasses.MessageClass
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
-
+@AndroidEntryPoint
 class ChatFragment : Fragment() {
 
     private var binding: FragmentChatBinding? = null

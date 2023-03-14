@@ -17,8 +17,9 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.AndroidEntryPoint
 import java.lang.Exception
-
+@AndroidEntryPoint
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
@@ -53,7 +54,7 @@ class ProfileFragment : Fragment() {
                             binding.nameProfile.setText(user.name)
                             binding.surnameProfile.setText(user.surname)
                             binding.phoneProfile.setText(user.phoneNumber)
-                            binding.emailProfile.setText(user.email)
+                            binding.emailProfile.text = user.email
                             binding.changeButton.setOnClickListener {
                                 if (
                                     binding.nameProfile.text.isNotEmpty() &&

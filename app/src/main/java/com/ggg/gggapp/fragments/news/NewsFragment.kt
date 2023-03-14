@@ -5,23 +5,19 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.ggg.gggapp.R
-import com.ggg.gggapp.activities.BottomNavigationActivity
-import com.ggg.gggapp.adapters.MessengerAdapter
 import com.ggg.gggapp.adapters.NewsAdapter
-import com.ggg.gggapp.database.Database
 import com.ggg.gggapp.databinding.FragmentNewsBinding
-import com.ggg.gggapp.dataclasses.MessageClass
 import com.ggg.gggapp.dataclasses.NewsClass
 import com.ggg.gggapp.dataclasses.UserClass
-import com.ggg.gggapp.fragments.authes.RegFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NewsFragment : Fragment() {
 
     private lateinit var binding: FragmentNewsBinding

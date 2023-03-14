@@ -13,7 +13,9 @@ import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ResetPasswordFragment : Fragment() {
 
     private lateinit var binding: FragmentResetPasswordBinding
@@ -22,7 +24,7 @@ class ResetPasswordFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentResetPasswordBinding.inflate(inflater)
         auth = Firebase.auth
         binding.resetPassword.setOnClickListener {

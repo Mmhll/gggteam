@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF"
-    tools:context=".fragments.services.WorkTimeFragment">
+    tools:context=".viewmodel.fragment_viewmodel.services.WorkTimeViewModel">
 
     <CalendarView
         android:id="@+id/calendarView"
