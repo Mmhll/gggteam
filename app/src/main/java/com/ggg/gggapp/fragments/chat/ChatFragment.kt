@@ -5,13 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.ggg.gggapp.adapters.MessengerAdapter
-import com.ggg.gggapp.database.Messenger
 import com.ggg.gggapp.databinding.FragmentChatBinding
-import com.ggg.gggapp.dataclasses.MessageClass
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.*
-import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
@@ -19,14 +13,14 @@ import java.util.*
 @AndroidEntryPoint
 class ChatFragment : Fragment() {
 
-    private var binding: FragmentChatBinding? = null
-    private lateinit var rtDatabase: DatabaseReference
+    private var _binding: FragmentChatBinding? = null
+    private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentChatBinding.inflate(inflater)
-        rtDatabase = FirebaseDatabase
+    ): View {
+        _binding = FragmentChatBinding.inflate(inflater)
+        /*rtDatabase = FirebaseDatabase
             .getInstance("https://gggteam-67db1-default-rtdb.europe-west1.firebasedatabase.app")
             .getReference("Messenger")
         var array = ArrayList<MessageClass>()
@@ -50,26 +44,24 @@ class ChatFragment : Fragment() {
             override fun onCancelled(error: DatabaseError) {
 
             }
-        })
-        binding!!.sendButton.setOnClickListener {
-            if (binding!!.messageChat.text.isNotEmpty()) {
-                val sdf = SimpleDateFormat("hh:mm")
-                val currentDate = sdf.format(Date())
-                Messenger().sendMessage(
+        })*/
+        binding.sendButton.setOnClickListener {
+            if (binding.messageChat.text.isNotEmpty()) {
+                /*Messenger().sendMessage(
                     message = MessageClass(
                         messageText = binding!!.messageChat.text.toString(),
                         time = currentDate,
                         userId = Firebase.auth.uid
                     )
-                )
-                binding!!.messageChat.text.clear()
+                )*/
+                binding.messageChat.text.clear()
             }
         }
-        return binding!!.root
+        return binding.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding = null
+        _binding = null
     }
 }

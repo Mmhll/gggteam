@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.Gggapp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -10,54 +10,9 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowTranslucentStatus">true</item>
-    </style>
-
-
-    <style name="authLogo">
-        <item name="android:layout_marginTop">50dp</item>
-        <item name="android:layout_gravity">center</item>
-    </style>
-
-    <style name="authText">
-        <item name="android:layout_marginTop">20dp</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:gravity">center</item>
-        <item name="android:colorControlActivated">@color/or</item>
-        <item name="android:colorControlHighlight">@color/or</item>
-        <item name="android:colorAccent">@color/or</item>
-        <item name="backgroundTint">@color/or</item>
-        <item name="android:drawablePadding">10dp</item>
-        <item name="android:textColor">@color/black</item>
-
-    </style>
-
-    <style name="RegText">
-        <item name="android:layout_marginTop">20dp</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:gravity">center</item>
-        <item name="android:colorControlActivated">@color/or</item>
-        <item name="android:colorControlHighlight">@color/or</item>
-        <item name="android:colorAccent">@color/or</item>
-        <item name="backgroundTint">@color/or</item>
-        <item name="android:drawablePadding">10dp</item>
-        <item name="android:textColor">@color/black</item>
-    </style>
-
-    <style name="TextView">
-        <item name="android:padding">10dp</item>
-        <item name="android:textSize">15dp</item>
-    </style>
-
-    <style name="Bott">
-        <item name="android:padding">10dp</item>
-        <item name="android:background">@drawable/conner</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:layout_marginTop">15dp</item>
     </style>
 </resources>

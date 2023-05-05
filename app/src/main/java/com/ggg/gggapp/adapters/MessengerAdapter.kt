@@ -1,27 +1,20 @@
 package com.ggg.gggapp.adapters
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.ggg.gggapp.R
-import com.ggg.gggapp.database.Database
-import com.ggg.gggapp.dataclasses.MessageClass
-import com.ggg.gggapp.dataclasses.UserClass
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.ggg.gggapp.model.MessageClass
+import com.ggg.gggapp.model.User
 
 class MessengerAdapter(val data: ArrayList<MessageClass>, val context: Context) :
     RecyclerView.Adapter<MessengerAdapter.VH>() {
 
-    private var array = ArrayList<UserClass>()
+    private var array = ArrayList<User>()
 
 
     class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -37,14 +30,14 @@ class MessengerAdapter(val data: ArrayList<MessageClass>, val context: Context) 
 
     override fun onBindViewHolder(holder: VH, position: Int) {
 
-        FirebaseDatabase.getInstance("https://gggteam-67db1-default-rtdb.europe-west1.firebasedatabase.app")
+       /* FirebaseDatabase.getInstance("https://gggteam-67db1-default-rtdb.europe-west1.firebasedatabase.app")
             .getReference("Users").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     for (snap in snapshot.children) {
-                        array.add(snap.getValue(UserClass::class.java)!!)
+                        array.add(snap.getValue(User::class.java)!!)
                     }
-                    var user: UserClass? = null
+                    var user: User? = null
                     for (i in array) {
                         if (i.uid == data[holder.adapterPosition].userId){
 
@@ -63,7 +56,7 @@ class MessengerAdapter(val data: ArrayList<MessageClass>, val context: Context) 
             override fun onCancelled(error: DatabaseError) {
 
             }
-        })
+        })*/
 
     }
 

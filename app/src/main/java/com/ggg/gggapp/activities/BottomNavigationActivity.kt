@@ -1,14 +1,12 @@
 package com.ggg.gggapp.activities
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ggg.gggapp.R
 import com.ggg.gggapp.databinding.ActivityBottomNavigationBinding
-import com.ggg.gggapp.viewmodel.fragment_viewmodel.services.RolesViewModel
-import com.ggg.gggapp.viewmodel.fragment_viewmodel.services.WorkTimeViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,9 +26,9 @@ class BottomNavigationActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        if (supportFragmentManager.findFragmentById(R.id.layoutFragment) == WorkTimeViewModel()) {
+    /*override fun onBackPressed() {
+
+       *//* if (supportFragmentManager.findFragmentById(R.id.layoutFragment) == WorkTimeViewModel()) {
             supportFragmentManager.beginTransaction()
                 .remove(WorkTimeViewModel())
                 .commit()
@@ -39,6 +37,6 @@ class BottomNavigationActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .remove(RolesViewModel())
                 .commit()
-        }
-    }
+        }*//*
+    }*/
 }

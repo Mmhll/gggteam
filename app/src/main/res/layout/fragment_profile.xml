@@ -52,8 +52,7 @@
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Имя"
-                style="@style/TextView"
+                android:text="@string/firstname"
                 android:textStyle="italic"/>
 
             <EditText
@@ -62,19 +61,12 @@
                 android:layout_height="wrap_content"
                 android:width="1dp"
                 android:gravity="end"
-                style="@style/TextView"
-                android:id="@+id/nameProfile"
+                android:id="@+id/firstnameProfile"
                 android:textStyle="bold"
-                android:textColor="@color/grean"
+                android:textColor="@color/green"
                 />
 
         </LinearLayout>
-
-        <View
-            android:layout_width="300dp"
-            android:background="@color/or"
-            android:layout_height="1sp"
-            android:layout_gravity="center"/>
 
         <LinearLayout
             android:layout_width="300dp"
@@ -86,8 +78,7 @@
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Фамилия"
-                style="@style/TextView"
+                android:text="@string/lastname"
                 android:textStyle="italic"/>
 
             <EditText
@@ -97,18 +88,37 @@
                 android:width="1dp"
 
                 android:gravity="end"
-                style="@style/TextView"
-                android:id="@+id/surnameProfile"
+                android:id="@+id/lastnameProfile"
                 android:textStyle="bold"
-                android:textColor="@color/grean"/>
+                android:textColor="@color/green"/>
 
         </LinearLayout>
 
-        <View
+        <LinearLayout
             android:layout_width="300dp"
-            android:background="@color/or"
-            android:layout_height="1sp"
-            android:layout_gravity="center"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="25dp"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/middlename"
+                android:textStyle="italic"/>
+
+            <EditText
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:width="1dp"
+
+                android:gravity="end"
+                android:id="@+id/middlenameProfile"
+                android:textStyle="bold"
+                android:textColor="@color/green"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="300dp"
@@ -121,7 +131,6 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="Номер"
-                style="@style/TextView"
                 android:textStyle="italic"/>
 
             <EditText
@@ -129,19 +138,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:width="1dp"
-                style="@style/TextView"
                 android:gravity="end"
                 android:id="@+id/phoneProfile"
                 android:textStyle="bold"
-                android:textColor="@color/grean"/>
+                android:textColor="@color/green"/>
 
         </LinearLayout>
-
-        <View
-            android:layout_width="300dp"
-            android:background="@color/or"
-            android:layout_height="1sp"
-            android:layout_gravity="center"/>
 
         <LinearLayout
             android:layout_width="300dp"
@@ -154,7 +156,6 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="Email"
-                style="@style/TextView"
                 android:textStyle="italic"/>
 
             <TextView
@@ -163,18 +164,12 @@
                 android:layout_height="wrap_content"
                 android:width="1dp"
                 android:gravity="end"
-                style="@style/TextView"
                 android:id="@+id/emailProfile"
                 android:textStyle="bold"
-                android:textColor="@color/grean"/>
+                android:textColor="@color/green"/>
 
         </LinearLayout>
 
-        <View
-            android:layout_width="300dp"
-            android:background="@color/or"
-            android:layout_height="1sp"
-            android:layout_gravity="center"/>
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/changeButton"
             android:layout_width="250dp"

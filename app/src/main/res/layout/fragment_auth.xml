@@ -18,39 +18,38 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/logo"
-            style="@style/authLogo"/>
+            />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SIGN IN"
+            android:text="@string/sign_in"
             android:gravity="center"
             android:layout_marginTop="25dp"/>
 
         <EditText
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            style="@style/authText"
-            android:id="@+id/Login"
+            android:id="@+id/email"
             android:backgroundTint="@color/black"
-            android:drawableLeft="@drawable/log"
-            android:hint="Email"
+            android:drawableStart="@drawable/log"
+            android:hint="@string/email"
             />
 
         <EditText
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            style="@style/authText"
-            android:id="@+id/Password"
-            android:drawableLeft="@drawable/pass"
-            android:hint="Password"
+            
+            android:id="@+id/password"
+            android:drawableStart="@drawable/pass"
+            android:hint="@string/password"
             android:inputType="textPassword"
             />
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:id="@+id/AuthButton"
+            android:id="@+id/auth_button"
             android:layout_gravity="center"
             android:background="@drawable/conner"
             android:layout_marginTop="20dp"
@@ -78,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:text="Sign Up"
                 android:gravity="center"
-                android:textColor="@color/or"
+                android:textColor="@color/orange"
                 android:id="@+id/RegButton"
                 />
 

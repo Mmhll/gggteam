@@ -1,4 +1,4 @@
-package com.ggg.gggapp.dataclasses
+package com.ggg.gggapp.model
 
 data class NewsClass(
 

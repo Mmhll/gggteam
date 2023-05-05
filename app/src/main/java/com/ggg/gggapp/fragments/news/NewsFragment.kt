@@ -7,33 +7,26 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.ggg.gggapp.R
-import com.ggg.gggapp.adapters.NewsAdapter
 import com.ggg.gggapp.databinding.FragmentNewsBinding
-import com.ggg.gggapp.dataclasses.NewsClass
-import com.ggg.gggapp.dataclasses.UserClass
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.*
-import com.google.firebase.ktx.Firebase
+import com.ggg.gggapp.model.NewsClass
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class NewsFragment : Fragment() {
 
-    private lateinit var binding: FragmentNewsBinding
-    private lateinit var rtDatabase: DatabaseReference
-    private lateinit var auth: FirebaseAuth
+    private var _binding: FragmentNewsBinding? = null
+    private val binding get() = _binding!!
     private lateinit var type: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         try{
-            binding = FragmentNewsBinding.inflate(inflater)
+            _binding = FragmentNewsBinding.inflate(inflater)
             type = "News"
             binding.sorting.setOnClickListener{
-                if(type.equals("News")){
+                /*if(type.equals("News")){
                     type = "Event"
                 }
                 else{
@@ -65,20 +58,20 @@ class NewsFragment : Fragment() {
                     override fun onCancelled(error: DatabaseError) {
 
                     }
-                })
+                })*/
             }
             getData()
-            auth = Firebase.auth
+           /* auth = Firebase.auth
             rtDatabase = FirebaseDatabase
                 .getInstance("https://gggteam-67db1-default-rtdb.europe-west1.firebasedatabase.app")
-                .getReference("News")
-            var array = ArrayList<NewsClass>()
+                .getReference("News")*/
+            /*var array = ArrayList<NewsClass>()
             binding.addButton.setOnClickListener{
                 binding.framCont.visibility = View.VISIBLE
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.fram_cont, AddNewsFragment()).commit()
-            }
-            rtDatabase.addValueEventListener(object : ValueEventListener {
+            }*/
+            /*rtDatabase.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
                         array.clear()
@@ -100,7 +93,7 @@ class NewsFragment : Fragment() {
                 override fun onCancelled(error: DatabaseError) {
 
                 }
-            })
+            })*/
         }
         catch (ex : Exception){
             Log.e("Tag","$ex")
@@ -109,14 +102,14 @@ class NewsFragment : Fragment() {
         return binding.root
     }
 
-    fun getData(){
-        rtDatabase = FirebaseDatabase
+    private fun getData(){
+        /*rtDatabase = FirebaseDatabase
             .getInstance("https://gggteam-67db1-default-rtdb.europe-west1.firebasedatabase.app")
             .getReference("Users")
         rtDatabase.child(Firebase.auth.uid.toString()).addValueEventListener(
             object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    var a = snapshot.getValue(UserClass::class.java)
+                    var a = snapshot.getValue(User::class.java)
                     if(a!!.position.equals("Admin")){
                         binding.addButton.visibility = View.VISIBLE
                     }
@@ -125,6 +118,11 @@ class NewsFragment : Fragment() {
 
                 }
             }
-        )
+        )*/
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

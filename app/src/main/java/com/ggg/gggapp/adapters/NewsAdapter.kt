@@ -9,11 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ggg.gggapp.R
-import com.ggg.gggapp.dataclasses.NewsClass
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.ggg.gggapp.model.NewsClass
 
 class NewsAdapter(val data: ArrayList<NewsClass>, val context: Context) :
     RecyclerView.Adapter<NewsAdapter.VHH>() {

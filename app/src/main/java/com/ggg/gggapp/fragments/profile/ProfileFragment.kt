@@ -1,29 +1,20 @@
 package com.ggg.gggapp.fragments.profile
 
-import android.content.Intent
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
-import com.ggg.gggapp.activities.BottomNavigationActivity
-import com.ggg.gggapp.activities.MainActivity
-import com.ggg.gggapp.database.Database
 import com.ggg.gggapp.databinding.FragmentProfileBinding
-import com.ggg.gggapp.dataclasses.UserClass
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
-import java.lang.Exception
+
 @AndroidEntryPoint
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,15 +22,15 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
-        var users = ArrayList<UserClass>()
-        Database().getFirebaseReference("Users").addValueEventListener(object : ValueEventListener {
+/*        var users = ArrayList<User>()*/
+        /*Database().getFirebaseReference("Users").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     for (snap in snapshot.children) {
-                        var user = snap.getValue(UserClass::class.java)
+                        var user = snap.getValue(User::class.java)
                         users.add(user!!)
                     }
-                    var user: UserClass? = null
+                    var user: User? = null
 
                     for (i in users) {
                         if (i.uid == Firebase.auth.uid) {
@@ -87,8 +78,17 @@ class ProfileFragment : Fragment() {
 
             }
 
-        })
+        })*/
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.changeButton.setOnClickListener {
+            val sharedPrefs = requireActivity().getSharedPreferences("token", Context.MODE_PRIVATE)
+            var token = sharedPrefs.getString("token", "")
+            //view
+        }
     }
 
     override fun onDestroyView() {

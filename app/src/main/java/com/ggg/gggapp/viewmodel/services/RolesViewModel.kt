@@ -1,11 +1,10 @@
-package com.ggg.gggapp.viewmodel.fragment_viewmodel.chat
+package com.ggg.gggapp.viewmodel.services
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class ChatViewModel @Inject constructor(
+class RolesViewModel @Inject constructor() : ViewModel() {
 
-): ViewModel()  {
 }

@@ -1,4 +1,4 @@
-package com.ggg.gggapp.viewmodel.fragment_viewmodel.news
+package com.ggg.gggapp.viewmodel.news
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

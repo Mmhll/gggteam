@@ -1,32 +1,25 @@
-package com.ggg.gggapp.fragments.services
+package com.ggg.gggapp.fragments.service
 
-import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import com.ggg.gggapp.R
+import androidx.fragment.app.Fragment
 import com.ggg.gggapp.databinding.FragmentResetPasswordBinding
-import com.google.firebase.auth.EmailAuthProvider
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ResetPasswordFragment : Fragment() {
 
-    private lateinit var binding: FragmentResetPasswordBinding
-    private lateinit var auth: FirebaseAuth
+    private var _binding: FragmentResetPasswordBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentResetPasswordBinding.inflate(inflater)
-        auth = Firebase.auth
+        _binding = FragmentResetPasswordBinding.inflate(inflater)
+        /*auth = Firebase.auth
         binding.resetPassword.setOnClickListener {
 
             val prefs = requireActivity().getSharedPreferences("cred", Context.MODE_PRIVATE)
@@ -52,8 +45,17 @@ class ResetPasswordFragment : Fragment() {
                         }
                 }
             }
-        }
+        }*/
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

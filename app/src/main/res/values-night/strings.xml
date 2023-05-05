@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="label">MyCompany</string>
+    <string name="middlename">Отчество</string>
+    <string name="firstname">Имя</string>
+    <string name="lastname">Фамилия</string>
+    <string name="change_password">Изменить пароль</string>
+    <string name="password">Password</string>
 </resources>

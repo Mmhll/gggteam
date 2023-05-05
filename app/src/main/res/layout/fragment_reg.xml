@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:hint="URL or"
                 android:id="@+id/avatarText"
-                android:backgroundTint="@color/or"
+                android:backgroundTint="@color/orange"
                 />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -39,7 +39,7 @@
         <EditText
             android:layout_width="270dp"
             android:layout_height="wrap_content"
-            style="@style/RegText"
+            
             android:hint="Email"
             android:id="@+id/emailText"
             />
@@ -47,7 +47,7 @@
         <EditText
             android:layout_width="270dp"
             android:layout_height="wrap_content"
-            style="@style/RegText"
+            
             android:hint="Password"
             android:id="@+id/passwordText"
             android:inputType="textPassword"
@@ -56,7 +56,7 @@
         <EditText
             android:layout_width="270dp"
             android:layout_height="wrap_content"
-            style="@style/RegText"
+            
             android:hint="Имя"
             android:id="@+id/nameText"
             />
@@ -64,7 +64,7 @@
         <EditText
             android:layout_width="270dp"
             android:layout_height="wrap_content"
-            style="@style/RegText"
+            
             android:hint="Фамилия"
             android:id="@+id/surnameText"
             />
@@ -72,7 +72,7 @@
         <EditText
             android:layout_width="270dp"
             android:layout_height="wrap_content"
-            style="@style/RegText"
+            
             android:hint="Отчество"
             android:id="@+id/patronymicText"
             />
@@ -80,7 +80,7 @@
         <EditText
             android:layout_width="270dp"
             android:layout_height="wrap_content"
-            style="@style/RegText"
+            
             android:hint="Номер телефона"
             android:id="@+id/phoneNumberText"
             />
@@ -89,8 +89,6 @@
             android:id="@+id/sexText"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
-            style="@style/RegText"
-            android:entries="@array/pol"
             />
 
         <androidx.appcompat.widget.AppCompatButton
